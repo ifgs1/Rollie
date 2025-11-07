@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rollie - Vende tu reloj en 24-48h</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Main Container with Split Layout -->
+    <div class="main-container">
+        <!-- Left Side - White Background -->
+        <div class="left-side">
+            <!-- Header -->
+            <header class="header">
+                <div class="logo">
+                    <img src="images/FirstPage_Logo.png" alt="Rollie">
+                </div>
+                <button class="whatsapp-btn">Vender por Whatsapp</button>
+            </header>
+
+            <!-- Main Content -->
+            <div class="content">
+                <h1>Vende tu<br>reloj en 24-48 h.<br>Pago seguro <em>hoy</em>.</h1>
+                <p class="subtitle">Cotización gratis con precios de mercado en tiempo real.</p>
+                
+                <!-- Feature Tags -->
+                <div class="feature-tags">
+                    <div class="feature-row">
+                        <span class="tag">Pago inmediato</span>
+                        <span class="tag">Envío asegurado</span>
+                        <span class="tag">Verificación profesional</span>
+                    </div>
+                    <div class="feature-row">
+                        <span class="tag">+1.200 cotizaciones</span>
+                        <span class="tag">No afiliados a Rolex SA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Dark Green Background -->
+        <div class="right-side">
+            <!-- Social Media Icons -->
+            <div class="social-icons">
+                <a href="#" class="social-icon whatsapp">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.525 3.488"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-icon youtube">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-icon tiktok">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-icon instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Watch Image -->
+            <div class="watch-container">
+                <img src="images/FirstPage_watchRight.png" alt="Luxury Watch" class="watch-image">
+                <img src="images/FirstPage_Overlapp.png" alt="Overlap Design" class="overlap-image">
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Section - About RollieAi -->
+    <section class="second-section">
+        <div class="second-container">
+            <!-- Left Content -->
+            <div class="second-left">
+                <h2>Sobre RollieAi ©</h2>
+                <p class="second-description">
+                    Rollie es una plataforma independiente de compra-venta y 
+                    <em>pricing</em> para <strong>LATAM</strong>. <em>Unimos datos vivos con verificación</em> 
+                    humana para que vendas rápido, seguro y al precio justo. No 
+                    afiliados a Rolex SA ni a otras marcas.
+                </p>
+                
+                <div class="brands-section">
+                    <h3>Qué compramos</h3>
+                    <div class="brand-logos">
+                        <img src="images/SecondPageRolexIcon.png" alt="Rolex" class="brand-logo">
+                        <img src="images/SecondPageAudemarsPiguetIcon.png" alt="Audemars Piguet" class="brand-logo">
+                        <img src="images/SecondPagePatekPhilippeIcon.png" alt="Patek Philippe" class="brand-logo">
+                        <img src="images/SecondPageOmegaIcon.png" alt="Omega" class="brand-logo">
+                        <img src="images/SecondPageCartierIcon.png" alt="Cartier" class="brand-logo">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Icon -->
+            <div class="second-right">
+                <img src="images/SecondPageRedIcon.png" alt="Rollie Icon" class="red-icon">
+            </div>
+        </div>
+    </section>
+
+    <!-- Third Section - Repeating Logo Header -->
+    <section class="third-section">
+        <div class="logo-strip">
+            <div class="logo-pattern">
+                <img src="images/Third_page_icon.png" alt="Rollie Luxury Watches" class="repeating-logo">
+                <img src="images/Third_page_icon.png" alt="Rollie Luxury Watches" class="repeating-logo">
+                <img src="images/Third_page_icon.png" alt="Rollie Luxury Watches" class="repeating-logo">
+                <img src="images/Third_page_icon.png" alt="Rollie Luxury Watches" class="repeating-logo">
+                <img src="images/Third_page_icon.png" alt="Rollie Luxury Watches" class="repeating-logo">
+                <img src="images/Third_page_icon.png" alt="Rollie Luxury Watches" class="repeating-logo">
+                <img src="images/Third_page_icon.png" alt="Rollie Luxury Watches" class="repeating-logo">
+                <img src="images/Third_page_icon.png" alt="Rollie Luxury Watches" class="repeating-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Fourth Section - Statistics -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">120</div>
+                <div class="stat-label">Relojes<br>Gestionados</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">12-36 h.</div>
+                <div class="stat-label">Tiempo a Pago</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">Envío Asegurado</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section - Andrés Suárez -->
+    <section class="about-section">
+        <div class="about-container">
+            <!-- Profile Image -->
+            <div class="about-left">
+                <div class="profile-image-container">
+                    <img src="https://via.placeholder.com/400x500/4A5568/FFFFFF?text=Profile+Photo" alt="Andrés Suárez" class="profile-image">
+                </div>
+            </div>
+            
+            <!-- Content -->
+            <div class="about-right">
+                <div class="about-content">
+                    <h2 class="about-name">Andrés Suárez</h2>
+                    <h3 class="about-title">Producto & Tecnología</h3>
+                    <p class="about-description">
+                        Producto & Tecnología líder de producto con experiencia en plataformas de datos; responsable de la tecnología, pricing en tiempo real e integraciones WhatsApp/CRM.
+                    </p>
+                </div>
+                
+                <!-- Arrow Button -->
+                <div class="about-arrow">
+                    <button class="arrow-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How This Works Section -->
+    <section class="how-it-works-section">
+        <div class="how-it-works-container">
+            <h2 class="how-it-works-title">¿Cómo funciona?</h2>
+            <p class="how-it-works-description">
+                Lorem ipsum dolor sit amet, consectetur<br>
+                adipiscing elit, sed.Lorem ipsum dolor sit amet.
+            </p>
+            <button class="whatsapp-btn how-it-works-btn">Vender por Whatsapp</button>
+            <div class="how-it-works-image">
+                <img src="images/HowItWorks.png" alt="How It Works Process" class="process-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="benefits-container">
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <img src="images/1.Money.png" alt="Money Icon">
+                    </div>
+                    <h3 class="benefit-title">Precio de mercado real</h3>
+                    <p class="benefit-description">Transacciones, no listados inflados</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <img src="images/2.Ray.png" alt="Ray Icon">
+                    </div>
+                    <h3 class="benefit-title">Rápido y simple</h3>
+                    <p class="benefit-description">Promedio 12–36 h, todo por WhatsApp</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <img src="images/3.Secure.png" alt="Secure Icon">
+                    </div>
+                    <h3 class="benefit-title">Seguro</h3>
+                    <p class="benefit-description">Envío asegurado, antifraude, verificación profesional</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <img src="images/4.Transparent.png" alt="Transparent Icon">
+                    </div>
+                    <h3 class="benefit-title">Transparente</h3>
+                    <p class="benefit-description">Ofertas válidas 48 h, sin letras pequeñas</p>
+                </div>
+            </div>
+            
+            <button class="whatsapp-btn benefits-btn">Vender por Whatsapp</button>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <div class="reviews-container">
+            <div class="reviews-slider">
+                <div class="reviews-track" id="reviewsTrack">
+                    <div class="review-item">
+                        <p class="review-text">"Vendí mi Submariner en 24 horas. Todo por WhatsApp y el envío llegó asegurado."</p>
+                        <p class="review-author">Andrés Suárez - CDMX</p>
+                    </div>
+                    
+                    <div class="review-item">
+                        <p class="review-text">"Me ofrecieron un precio justo basado en mercado real, no en listados inflados."</p>
+                        <p class="review-author">Juan - Bogotá</p>
+                    </div>
+                    
+                    <div class="review-item">
+                        <p class="review-text">"Proceso súper fácil: fotos, oferta, guía de envío y pago el mismo día."</p>
+                        <p class="review-author">Sofía - Lima</p>
+                    </div>
+                    
+                    <div class="review-item">
+                        <p class="review-text">"Excelente servicio, muy profesional y rápido. Recomiendo totalmente."</p>
+                        <p class="review-author">Carlos - Buenos Aires</p>
+                    </div>
+                    
+                    <div class="review-item">
+                        <p class="review-text">"La verificación fue muy profesional y el pago inmediato. Muy confiable."</p>
+                        <p class="review-author">María - Santiago</p>
+                    </div>
+                    
+                    <div class="review-item">
+                        <p class="review-text">"Mejor precio que otras plataformas y proceso mucho más rápido."</p>
+                        <p class="review-author">Roberto - Medellín</p>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="reviews-nav-btn" id="reviewsNextBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 class="faq-title">Preguntas Frecuentes</h2>
+            
+            <div class="faq-list">
+                <div class="faq-item expanded" data-faq="1">
+                    <div class="faq-question">
+                        <span>¿Cómo protegen mi reloj durante el envío?</span>
+                        <button class="faq-toggle">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Usamos guías prepagadas con seguro a valor declarado y registramos unboxing en video. Implementamos antifraude: foto con código único, ID + selfie (> USD 5k) y, si es necesario, videollamada breve.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-faq="2">
+                    <div class="faq-question">
+                        <span>¿Qué pasa si no acepto la oferta?</span>
+                        <button class="faq-toggle">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-faq="3">
+                    <div class="faq-question">
+                        <span>¿En qué países operan?</span>
+                        <button class="faq-toggle">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-faq="4">
+                    <div class="faq-question">
+                        <span>¿Pueden mostrar ejemplos de ofertas?</span>
+                        <button class="faq-toggle">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-faq="5">
+                    <div class="faq-question">
+                        <span>¿Aceptan relojes sin papeles?</span>
+                        <button class="faq-toggle">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-faq="6">
+                    <div class="faq-question">
+                        <span>¿Cuánto tardan en pagar?</span>
+                        <button class="faq-toggle">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-faq="7">
+                    <div class="faq-question">
+                        <span>¿Puedo consignar en lugar de vender?</span>
+                        <button class="faq-toggle">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-card">
+                <div class="contact-logo">
+                    <img src="images/FirstPage_Logo.png" alt="Rollie">
+                </div>
+                <h2 class="contact-title">¿Listo para cotizar?</h2>
+                <p class="contact-description">Escríbenos por WhatsApp y te damos una oferta en minutos.</p>
+                <button class="whatsapp-btn contact-btn">Vender por Whatsapp</button>
+                <div class="contact-overlay-icon">
+                    <img src="images/SecondPageRedIcon.png" alt="Rollie Icon">
+                </div>
+            </div>
+            
+            <div class="contact-social-icons">
+                <a href="#" class="contact-social-icon whatsapp">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.525 3.488"/>
+                    </svg>
+                </a>
+                <a href="#" class="contact-social-icon youtube">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </a>
+                <a href="#" class="contact-social-icon tiktok">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                    </svg>
+                </a>
+                <a href="#" class="contact-social-icon instagram">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p class="footer-copyright">© 2025 Rollie — Plataforma independiente. No afiliados a Rolex SA ni a otras marcas.</p>
+            </div>
+            <div class="footer-center">
+                <img src="images/FirstPage_Logo.png" alt="Rollie" class="footer-logo">
+            </div>
+            <div class="footer-right">
+                <p class="footer-links">Términos • Privacidad</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
