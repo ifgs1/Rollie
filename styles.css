@@ -1,4 +1,6 @@
-/* Reset and Base Styles */
+/* =========================================
+   1. Reset and Base Styles
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -7,17 +9,22 @@
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    line-height: 1.6;
+    line-height: 1.5;
     color: #333;
     background-color: #fff;
     overflow-x: hidden;
 }
 
-/* Main Container - Split Layout */
+/* =========================================
+   2. First Section - Hero (Fixed Compact Height)
+   ========================================= */
 .main-container {
     display: flex;
-    min-height: 40vh;
+    /* Fixed height for the compact look on the left */
+    height: 720px; 
     width: 100%;
+    position: relative;
+    z-index: 10;
 }
 
 /* Left Side - White Background */
@@ -26,381 +33,220 @@ body {
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
+    justify-content: center; 
     position: relative;
-}
-
-/* Right Side - Dark Green Background */
-.right-side {
-    width: 50%;
-    background-color: #293329;
-    position: relative;
-    display: flex;
-    flex-direction: column;
+    z-index: 5;
 }
 
 /* Header */
 .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 30px 40px;
-    position: relative;
+    justify-content: space-between; /* Ensures logo left, switcher right */
+    padding: 30px 60px;
     z-index: 10;
 }
 
 .logo img {
-    height: 40px;
+    height: 32px;
     width: auto;
 }
 
-.whatsapp-btn {
-    background: #98E090;
-    color: #333;
+/* Language Switcher Styles */
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.lang-btn {
+    background: none;
     border: none;
-    padding: 12px 24px;
-    border-radius: 6px;
-    font-weight: 600;
+    font-family: 'Inter', sans-serif;
     font-size: 14px;
+    font-weight: 500;
+    color: #999;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 10px rgba(152, 224, 144, 0.3);
+    padding: 0;
+    transition: color 0.3s ease;
 }
 
-.whatsapp-btn:hover {
-    background: #85D07D;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(152, 224, 144, 0.4);
+.lang-btn:hover {
+    color: #000;
 }
 
-/* Main Content */
+.lang-btn.active {
+    color: #000;
+    font-weight: 800;
+}
+
+.lang-separator {
+    color: #ddd;
+    font-size: 14px;
+}
+
+/* Main Content Area */
 .content {
-    flex: 1;
-    padding: 60px 40px 40px 40px;
+    /* Compact padding for the 720px height */
+    padding: 100px 60px 0 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    max-width: 750px;
 }
 
+/* Hero Typography */
 .content h1 {
+    font-family: 'Inter', sans-serif;
     font-size: 3.5rem;
-    font-weight: 700;
+    font-weight: 300;
     line-height: 1.1;
-    color: #333;
-    margin-bottom: 30px;
-    letter-spacing: -0.02em;
+    color: #000;
+    margin-bottom: 20px;
+    letter-spacing: -0.03em;
 }
 
-.content h1 em {
-    font-style: italic;
-    color: #333;
+.highlight-text {
+    font-weight: 900;
+    color: #000;
 }
 
 .subtitle {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: #666;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     line-height: 1.5;
-    max-width: 400px;
+    max-width: 450px;
 }
 
-/* Feature Tags */
-.feature-tags {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.feature-row {
+/* Buttons */
+.hero-buttons {
     display: flex;
     gap: 15px;
-    flex-wrap: wrap;
+    margin-bottom: 40px;
 }
 
-.tag {
-    background: #f5f5f5;
-    color: #333;
-    padding: 8px 16px;
+.btn-dark {
+    background-color: #000000;
+    color: #FFFFFF;
+    border: none;
+    padding: 15px 30px;
     border-radius: 6px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    border: 1px solid #e0e0e0;
-    white-space: nowrap;
-}
-
-/* Social Media Icons */
-.social-icons {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    display: flex;
-    gap: 15px;
-    z-index: 10;
-}
-
-.social-icon {
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
     transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.social-icon:hover {
-    background: rgba(255, 255, 255, 0.2);
+.btn-dark:hover {
+    background-color: #333;
     transform: translateY(-2px);
 }
 
-.social-icon svg {
-    width: 20px;
-    height: 20px;
+.btn-green {
+    background-color: #98E090;
+    color: #000000;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-/* Watch Container */
-.watch-container {
-    flex: 1;
+.btn-green:hover {
+    background-color: #85D07D;
+    transform: translateY(-2px);
+}
+
+/* Feature Tags Grid */
+.feature-tags-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 20px;
+    max-width: 480px;
+}
+
+.feature-item {
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding: 40px;
-    position: relative;
-    padding-bottom: 60px;
+    align-items: center;
+    gap: 10px;
 }
 
-.watch-image {
-    max-width: 100%;
-    max-height: 60vh;
-    width: auto;
-    height: auto;
+.check-icon {
+    width: 18px;
+    height: 18px;
     object-fit: contain;
-    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
-    position: relative;
-    z-index: 1;
-    margin-top: 80px;
 }
 
-.overlap-image {
+.feature-item span {
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+    white-space: nowrap;
+}
+
+/* Right Side - Image Container */
+.right-side {
+    width: 50%;
+    background-color: #293329;
+    height: 100%; 
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    /* RESTORED: Visible overflow allows the seal to hang out */
+    overflow: visible; 
+    z-index: 6; 
+}
+
+.hero-bg-image {
+    width: 100%;
+    /* FIXED: Height is 100% of the container, fits perfectly */
+    height: 100%; 
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    position: relative;
+    z-index: 5;
+}
+
+/* RESTORED: The separate, absolutely positioned Red Seal */
+.floating-red-seal {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 120%;
-    max-height: 70vh;
-    width: auto;
+    /* Hangs 100px below the hero section */
+    bottom: -100px; 
+    /* Centered horizontally */
+    left: 50%; 
+    width: 220px; 
     height: auto;
-    object-fit: contain;
-    z-index: 2;
+    /* Centers the element and tilts it */
+    transform: translateX(-50%) rotate(-10deg);
+    z-index: 20; /* Ensures it's on top of everything */
     pointer-events: none;
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.2));
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .content h1 {
-        font-size: 3rem;
-    }
-    
-    .content {
-        padding: 40px 30px;
-    }
-    
-    .header {
-        padding: 25px 30px;
-    }
-    
-    .logo img {
-        height: 35px;
-    }
-}
-
-@media (max-width: 768px) {
-    .main-container {
-        flex-direction: column;
-    }
-    
-    .left-side,
-    .right-side {
-        width: 100%;
-    }
-    
-    .left-side {
-        min-height: 100vh;
-    }
-    
-    .right-side {
-        min-height: 60vh;
-    }
-    
-    .content h1 {
-        font-size: 2.5rem;
-    }
-    
-    .content {
-        padding: 30px 25px;
-    }
-    
-    .header {
-        padding: 20px 25px;
-    }
-    
-    .social-icons {
-        top: 20px;
-        right: 20px;
-        gap: 10px;
-    }
-    
-    .social-icon {
-        width: 35px;
-        height: 35px;
-    }
-    
-    .social-icon svg {
-        width: 18px;
-        height: 18px;
-    }
-    
-    .feature-row {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .tag {
-        text-align: center;
-    }
-    
-    .watch-container {
-        padding: 20px;
-    }
-    
-    /* Second Section Mobile Styles */
-    .second-section {
-        padding: 60px 0;
-        min-height: auto;
-    }
-    
-    .second-container {
-        flex-direction: column;
-        padding: 0 25px;
-        text-align: center;
-    }
-    
-    .second-left {
-        padding-right: 0;
-        margin-bottom: 40px;
-        max-width: 100%;
-    }
-    
-    .second-left h2 {
-        font-size: 2.5rem;
-        margin-bottom: 30px;
-    }
-    
-    .second-description {
-        font-size: 1rem;
-        margin-bottom: 40px;
-        max-width: 100%;
-    }
-    
-    .brands-section h3 {
-        font-size: 1.3rem;
-        margin-bottom: 25px;
-    }
-    
-    .brand-logos {
-        gap: 25px;
-        justify-content: center;
-    }
-    
-    .brand-logo {
-        height: 35px;
-    }
-    
-    .red-icon {
-        width: 150px;
-        height: 150px;
-    }
-}
-
-@media (max-width: 480px) {
-    .content h1 {
-        font-size: 2rem;
-    }
-    
-    .subtitle {
-        font-size: 1rem;
-    }
-    
-    .content {
-        padding: 20px;
-    }
-    
-    .header {
-        padding: 15px 20px;
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-    
-    .logo img {
-        height: 30px;
-    }
-    
-    .whatsapp-btn {
-        padding: 10px 20px;
-        font-size: 13px;
-    }
-    
-    .social-icons {
-        position: relative;
-        top: auto;
-        right: auto;
-        justify-content: center;
-        margin: 20px 0;
-    }
-}
-
-/* High DPI Displays */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .watch-image {
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-    }
-}
-
-/* Dark mode support for system preferences */
-@media (prefers-color-scheme: dark) {
-    /* Keep the design as is since it's specifically designed with these colors */
-}
-
-/* Reduced motion for accessibility */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-
-/* Focus styles for accessibility */
-.whatsapp-btn:focus,
-.social-icon:focus {
-    outline: 2px solid #98E090;
-    outline-offset: 2px;
-}
-
-/* Second Section Styles */
+/* =========================================
+   3. Second Section - SOBRE ROLLIE
+   ========================================= */
 .second-section {
     background-color: #98E090;
     width: 100%;
-    min-height: 50vh;
-    display: flex;
-    align-items: center;
-    padding: 40px 0;
+    /* Padding ensures text clears the hanging seal */
+    padding: 220px 0 100px 0; 
+    position: relative;
+    z-index: 1; 
+    /* Margin not strictly needed if padding is sufficient, but okay to keep */
+    margin-top: 0; 
 }
 
 .second-container {
@@ -408,97 +254,50 @@ body {
     margin: 0 auto;
     padding: 0 40px;
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    width: 100%;
+    flex-direction: column;
 }
 
-.second-left {
-    flex: 1;
-    max-width: 600px;
-    padding-right: 60px;
-    padding-left: 0;
-    margin-left: 0;
-}
-
-.second-left h2 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 40px;
-    line-height: 1.1;
+.second-content h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 4rem;
+    text-transform: uppercase;
+    color: #293329;
+    margin-bottom: 30px;
     letter-spacing: -0.02em;
+    line-height: 1;
 }
 
 .second-description {
-    font-size: 1.1rem;
-    color: #333;
-    line-height: 1.6;
-    margin-bottom: 60px;
-    max-width: 500px;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #293329;
+    line-height: 1.5;
+    max-width: 850px;
 }
 
-.second-description em {
-    font-style: italic;
-}
-
-.second-description strong {
-    font-weight: 700;
-}
-
-.brands-section h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 30px;
-}
-
-.brand-logos {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 40px;
-    align-items: center;
-    overflow-x: auto;
-}
-
-.brand-logo {
-    height: 45px;
-    width: 45px;
-    object-fit: contain;
-    filter: grayscale(0);
-    transition: all 0.3s ease;
-}
-
-.brand-logo:hover {
-    transform: scale(1.05);
-}
-
-.second-right {
-    flex-shrink: 0;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    margin-top: -40px;
-}
-
-.red-icon {
-    width: 200px;
-    height: 200px;
-    object-fit: contain;
-}
-
-/* Third Section - Repeating Logo Header */
+/* =========================================
+   4. Third Section - Brand Strip
+   ========================================= */
 .third-section {
     background-color: #293329;
-    width: 100%;
-    height: 80px;
+    width: 105%;
+    height: 120px;
     overflow: hidden;
     position: relative;
+    z-index: 4;
+    transform: rotate(-2deg);
+    margin-left: -2.5%;
+    margin-top: -30px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid rgba(152, 224, 144, 0.1);
+    border-bottom: 1px solid rgba(152, 224, 144, 0.1);
 }
 
 .logo-strip {
     width: 100%;
-    height: 100%;
     display: flex;
     align-items: center;
 }
@@ -506,167 +305,136 @@ body {
 .logo-pattern {
     display: flex;
     align-items: center;
-    animation: scroll-logos 20s linear infinite;
+    gap: 60px;
+    animation: scroll-logos 30s linear infinite;
     white-space: nowrap;
+    padding-left: 0;
 }
 
-.repeating-logo {
-    height: 50px;
+.brand-logo-img {
+    height: 45px;
     width: auto;
-    margin-right: 40px;
     object-fit: contain;
-    flex-shrink: 0;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.brand-logo-img:hover {
+    opacity: 1;
 }
 
 @keyframes scroll-logos {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
-/* Responsive adjustments for third section */
-@media (max-width: 768px) {
-    .third-section {
-        height: 60px;
-    }
-    
-    .repeating-logo {
-        height: 35px;
-        margin-right: 30px;
-    }
-    
-    .logo-pattern {
-        animation-duration: 15s;
-    }
-}
-
-@media (max-width: 480px) {
-    .third-section {
-        height: 50px;
-    }
-    
-    .repeating-logo {
-        height: 30px;
-        margin-right: 25px;
-    }
-    
-    .logo-pattern {
-        animation-duration: 12s;
-    }
-}
-
-/* Fourth Section - Statistics */
-.stats-section {
+/* =========================================
+   5. Team Section
+   ========================================= */
+.team-section {
     background-color: #ffffff;
     width: 100%;
-    padding: 60px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 100px 0;
+    position: relative;
+    z-index: 2;
 }
 
-.stats-container {
+.team-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 40px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    gap: 80px;
 }
 
-.stat-item {
-    text-align: center;
-    flex: 1;
-}
-
-.stat-number {
-    font-size: 4rem;
-    font-weight: 700;
-    color: #333;
-    line-height: 1;
-    margin-bottom: 15px;
+.team-main-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    color: #293329;
+    margin-bottom: 60px;
     letter-spacing: -0.02em;
+    text-align: center;
 }
 
-.stat-label {
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: #333;
-    line-height: 1.3;
-}
-
-/* Responsive styles for stats section */
-@media (max-width: 1024px) {
-    .stats-container {
-        gap: 60px;
-        padding: 0 30px;
-    }
-    
-    .stat-number {
-        font-size: 3.5rem;
-    }
-    
-    .stat-label {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .stats-section {
-        padding: 40px 0;
-    }
-    
-    .stats-container {
-        flex-direction: column;
-        gap: 40px;
-        padding: 0 25px;
-    }
-    
-    .stat-item {
-        max-width: 300px;
-    }
-    
-    .stat-number {
-        font-size: 3rem;
-    }
-    
-    .stat-label {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .stats-section {
-        padding: 30px 0;
-    }
-    
-    .stats-container {
-        gap: 30px;
-        padding: 0 20px;
-    }
-    
-    .stat-number {
-        font-size: 2.5rem;
-    }
-    
-    .stat-label {
-        font-size: 0.9rem;
-    }
-}
-
-/* How This Works Section */
-.how-it-works-section {
-    background-color: #FFFFFF;
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
     width: 100%;
-    padding: 80px 0;
+}
+
+.team-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.team-image-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 25px;
+    overflow: hidden;
+    border-radius: 16px;
+    background-color: #f0f0f0;
+}
+
+.team-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.team-card:hover .team-image {
+    transform: scale(1.03);
+    filter: grayscale(0%);
+}
+
+.team-info { width: 100%; }
+
+.team-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: #000;
+    margin-bottom: 5px;
+    line-height: 1.2;
+}
+
+.team-role {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #666;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.team-description {
+    font-size: 0.9rem;
+    color: #444;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* =========================================
+   6. How It Works Section
+   ========================================= */
+.how-it-works-section {
+    background-color: #F7F7F7;
+    width: 100%;
+    padding: 100px 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 .how-it-works-container {
@@ -674,338 +442,77 @@ body {
     margin: 0 auto;
     padding: 0 40px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
+    justify-content: space-between;
     width: 100%;
+    gap: 60px;
 }
 
-.how-it-works-title {
-    font-size: 4rem;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 30px;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-}
-
-.how-it-works-description {
-    font-size: 1.1rem;
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 40px;
-    max-width: 600px;
-}
-
-.how-it-works-btn {
-    margin-bottom: 60px;
-}
-
-.how-it-works-image {
+.how-left-image {
+    flex: 1;
     display: flex;
-    align-items: center;
     justify-content: center;
-    width: 100%;
+    position: relative;
 }
 
-.process-image {
-    max-width: 100%;
+.tray-image {
+    width: 110%;
+    max-width: 600px;
     height: auto;
     object-fit: contain;
+    transform: rotate(-5deg);
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
 }
 
-/* Responsive styles for how-it-works section */
-@media (max-width: 1024px) {
-    .how-it-works-container {
-        padding: 0 30px;
-    }
-    
-    .how-it-works-title {
-        font-size: 3.5rem;
-    }
-    
-    .how-it-works-description {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .how-it-works-section {
-        padding: 60px 0;
-    }
-    
-    .how-it-works-container {
-        padding: 0 25px;
-    }
-    
-    .how-it-works-title {
-        font-size: 3rem;
-        margin-bottom: 25px;
-    }
-    
-    .how-it-works-description {
-        font-size: 1rem;
-        margin-bottom: 35px;
-    }
-    
-    .how-it-works-btn {
-        margin-bottom: 50px;
-    }
-}
-
-@media (max-width: 480px) {
-    .how-it-works-section {
-        padding: 40px 0;
-    }
-    
-    .how-it-works-container {
-        padding: 0 20px;
-    }
-    
-    .how-it-works-title {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-    }
-    
-    .how-it-works-description {
-        font-size: 0.95rem;
-        margin-bottom: 30px;
-    }
-    
-    .how-it-works-btn {
-        margin-bottom: 40px;
-    }
-}
-
-/* About Section - Andrés Suárez */
-.about-section {
-    background-color: #F7F7F7;
-    width: 100%;
-    padding: 80px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.about-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    gap: 80px;
-}
-
-.about-left {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.profile-image-container {
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-.profile-image {
-    width: 300px;
-    height: 380px;
-    object-fit: cover;
-    display: block;
-}
-
-.about-right {
+.how-right-content {
     flex: 1;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 40px;
 }
 
-.about-content {
-    flex: 1;
-}
-
-.about-name {
-    font-size: 4rem;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 15px;
-    line-height: 1.1;
+.how-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 3.5rem;
+    line-height: 1;
+    color: #293329;
+    margin-bottom: 50px;
+    text-transform: uppercase;
     letter-spacing: -0.02em;
 }
 
-.about-title {
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: #666;
-    margin-bottom: 40px;
-    line-height: 1.3;
+.steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
-.about-description {
-    font-size: 1.1rem;
-    color: #333;
-    line-height: 1.6;
-    max-width: 500px;
+.step-item {
+    display: flex;
+    align-items: center;
+    gap: 25px;
 }
 
-.about-arrow {
+.step-icon {
+    height: 55px;
+    width: auto;
+    object-fit: contain;
     flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-.arrow-btn {
-    width: 60px;
-    height: 60px;
-    background-color: #98E090;
-    border: none;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.step-text {
+    font-size: 1.1rem;
+    font-weight: 600;
     color: #333;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(152, 224, 144, 0.3);
+    line-height: 1.3;
+    margin: 0;
 }
 
-.arrow-btn:hover {
-    background-color: #85D07D;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(152, 224, 144, 0.4);
-}
-
-.arrow-btn:focus {
-    outline: 2px solid #98E090;
-    outline-offset: 2px;
-}
-
-.arrow-btn svg {
-    width: 24px;
-    height: 24px;
-}
-
-/* Responsive styles for about section */
-@media (max-width: 1024px) {
-    .about-container {
-        gap: 60px;
-        padding: 0 30px;
-    }
-    
-    .about-name {
-        font-size: 3.5rem;
-    }
-    
-    .about-title {
-        font-size: 1.3rem;
-    }
-    
-    .about-description {
-        font-size: 1rem;
-    }
-    
-    .profile-image {
-        width: 250px;
-        height: 320px;
-    }
-}
-
-@media (max-width: 768px) {
-    .about-section {
-        padding: 60px 0;
-    }
-    
-    .about-container {
-        flex-direction: column;
-        gap: 40px;
-        padding: 0 25px;
-        text-align: center;
-    }
-    
-    .about-right {
-        flex-direction: column;
-        gap: 30px;
-        align-items: center;
-    }
-    
-    .about-name {
-        font-size: 3rem;
-    }
-    
-    .about-title {
-        font-size: 1.2rem;
-        margin-bottom: 30px;
-    }
-    
-    .about-description {
-        font-size: 1rem;
-        max-width: 100%;
-    }
-    
-    .profile-image {
-        width: 200px;
-        height: 250px;
-    }
-    
-    .arrow-btn {
-        width: 50px;
-        height: 50px;
-    }
-    
-    .arrow-btn svg {
-        width: 20px;
-        height: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .about-section {
-        padding: 40px 0;
-    }
-    
-    .about-container {
-        gap: 30px;
-        padding: 0 20px;
-    }
-    
-    .about-name {
-        font-size: 2.5rem;
-    }
-    
-    .about-title {
-        font-size: 1.1rem;
-        margin-bottom: 25px;
-    }
-    
-    .about-description {
-        font-size: 0.95rem;
-    }
-    
-    .profile-image {
-        width: 180px;
-        height: 220px;
-    }
-    
-    .arrow-btn {
-        width: 45px;
-        height: 45px;
-    }
-    
-    .arrow-btn svg {
-        width: 18px;
-        height: 18px;
-    }
-}
-
-/* Benefits Section */
+/* =========================================
+   7. Benefits Section
+   ========================================= */
 .benefits-section {
     background-color: #F9F8F7;
     width: 100%;
@@ -1082,117 +589,11 @@ body {
     max-width: 200px;
 }
 
-.benefits-btn {
-    margin-top: 20px;
-}
+.benefits-btn { margin-top: 20px; }
 
-/* Responsive styles for benefits section */
-@media (max-width: 1024px) {
-    .benefits-container {
-        padding: 0 30px;
-    }
-    
-    .benefits-grid {
-        gap: 25px;
-        margin-bottom: 50px;
-    }
-    
-    .benefit-item {
-        padding: 35px 25px;
-    }
-    
-    .benefit-icon {
-        width: 55px;
-        height: 55px;
-        margin-bottom: 20px;
-    }
-    
-    .benefit-title {
-        font-size: 1.3rem;
-    }
-    
-    .benefit-description {
-        font-size: 0.95rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .benefits-section {
-        padding: 60px 0;
-    }
-    
-    .benefits-container {
-        padding: 0 25px;
-    }
-    
-    .benefits-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-        margin-bottom: 40px;
-    }
-    
-    .benefit-item {
-        padding: 30px 20px;
-    }
-    
-    .benefit-icon {
-        width: 50px;
-        height: 50px;
-        margin-bottom: 18px;
-    }
-    
-    .benefit-title {
-        font-size: 1.2rem;
-        margin-bottom: 12px;
-    }
-    
-    .benefit-description {
-        font-size: 0.9rem;
-        max-width: 180px;
-    }
-}
-
-@media (max-width: 480px) {
-    .benefits-section {
-        padding: 40px 0;
-    }
-    
-    .benefits-container {
-        padding: 0 20px;
-    }
-    
-    .benefits-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-        margin-bottom: 35px;
-    }
-    
-    .benefit-item {
-        padding: 25px 15px;
-    }
-    
-    .benefit-icon {
-        width: 45px;
-        height: 45px;
-        margin-bottom: 15px;
-    }
-    
-    .benefit-title {
-        font-size: 1.1rem;
-        margin-bottom: 10px;
-    }
-    
-    .benefit-description {
-        font-size: 0.85rem;
-        max-width: 100%;
-    }
-    
-    .benefits-btn {
-        margin-top: 15px;
-    }
-}
-
-/* Reviews Section */
+/* =========================================
+   8. Reviews Section
+   ========================================= */
 .reviews-section {
     background-color: #293329;
     width: 100%;
@@ -1274,115 +675,9 @@ body {
     transform: translateY(-50%) translateX(2px);
 }
 
-.reviews-nav-btn:focus {
-    outline: 2px solid rgba(255, 255, 255, 0.5);
-    outline-offset: 2px;
-}
-
-.reviews-nav-btn svg {
-    width: 20px;
-    height: 20px;
-}
-
-/* Responsive styles for reviews section */
-@media (max-width: 1024px) {
-    .reviews-container {
-        padding: 0 30px;
-    }
-    
-    .reviews-nav-btn {
-        right: 30px;
-    }
-    
-    .review-item {
-        flex: 0 0 calc(50% - 20px);
-        padding: 35px 25px;
-    }
-    
-    .review-text {
-        font-size: 1.1rem;
-        margin-bottom: 25px;
-    }
-    
-    .review-author {
-        font-size: 0.95rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .reviews-section {
-        padding: 60px 0;
-    }
-    
-    .reviews-container {
-        padding: 0 25px;
-    }
-    
-    .reviews-nav-btn {
-        right: 25px;
-        width: 45px;
-        height: 45px;
-    }
-    
-    .reviews-nav-btn svg {
-        width: 18px;
-        height: 18px;
-    }
-    
-    .review-item {
-        flex: 0 0 100%;
-        padding: 30px 20px;
-    }
-    
-    .reviews-track {
-        gap: 20px;
-    }
-    
-    .review-text {
-        font-size: 1rem;
-        margin-bottom: 20px;
-    }
-    
-    .review-author {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .reviews-section {
-        padding: 40px 0;
-    }
-    
-    .reviews-container {
-        padding: 0 20px;
-    }
-    
-    .reviews-nav-btn {
-        right: 20px;
-        width: 40px;
-        height: 40px;
-    }
-    
-    .reviews-nav-btn svg {
-        width: 16px;
-        height: 16px;
-    }
-    
-    .review-item {
-        padding: 25px 15px;
-    }
-    
-    .review-text {
-        font-size: 0.95rem;
-        margin-bottom: 18px;
-    }
-    
-    .review-author {
-        font-size: 0.85rem;
-    }
-}
-
-/* FAQ Section */
+/* =========================================
+   9. FAQ Section
+   ========================================= */
 .faq-section {
     background-color: #FFFFFF;
     width: 100%;
@@ -1400,13 +695,14 @@ body {
 }
 
 .faq-title {
-    font-size: 4rem;
-    font-weight: 700;
+    font-size: 3.5rem;
+    font-weight: 900;
     color: #333;
     margin-bottom: 60px;
     line-height: 1.1;
     letter-spacing: -0.02em;
     text-align: center;
+    text-transform: uppercase;
 }
 
 .faq-list {
@@ -1502,217 +798,116 @@ body {
     padding-top: 10px;
 }
 
-/* Responsive styles for FAQ section */
-@media (max-width: 1024px) {
-    .faq-container {
-        padding: 0 30px;
-    }
-    
-    .faq-title {
-        font-size: 3.5rem;
-        margin-bottom: 50px;
-    }
-    
-    .faq-question {
-        padding: 22px 25px;
-    }
-    
-    .faq-question span {
-        font-size: 1.1rem;
-    }
-    
-    .faq-item.expanded .faq-answer {
-        padding: 0 25px 25px 25px;
-    }
-}
-
-@media (max-width: 768px) {
-    .faq-section {
-        padding: 60px 0;
-    }
-    
-    .faq-container {
-        padding: 0 25px;
-    }
-    
-    .faq-title {
-        font-size: 3rem;
-        margin-bottom: 40px;
-    }
-    
-    .faq-list {
-        gap: 15px;
-    }
-    
-    .faq-question {
-        padding: 20px 22px;
-    }
-    
-    .faq-question span {
-        font-size: 1rem;
-        margin-right: 15px;
-    }
-    
-    .faq-toggle {
-        width: 35px;
-        height: 35px;
-    }
-    
-    .faq-toggle svg {
-        width: 18px;
-        height: 18px;
-    }
-    
-    .faq-item.expanded .faq-answer {
-        padding: 0 22px 22px 22px;
-    }
-    
-    .faq-answer p {
-        font-size: 0.95rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .faq-section {
-        padding: 40px 0;
-    }
-    
-    .faq-container {
-        padding: 0 20px;
-    }
-    
-    .faq-title {
-        font-size: 2.5rem;
-        margin-bottom: 35px;
-    }
-    
-    .faq-list {
-        gap: 12px;
-    }
-    
-    .faq-question {
-        padding: 18px 20px;
-    }
-    
-    .faq-question span {
-        font-size: 0.95rem;
-        margin-right: 12px;
-    }
-    
-    .faq-toggle {
-        width: 32px;
-        height: 32px;
-    }
-    
-    .faq-toggle svg {
-        width: 16px;
-        height: 16px;
-    }
-    
-    .faq-item.expanded .faq-answer {
-        padding: 0 20px 20px 20px;
-        max-height: 250px;
-    }
-    
-    .faq-answer p {
-        font-size: 0.9rem;
-    }
-}
-
-/* Contact Section */
+/* =========================================
+   10. Contact Section
+   ========================================= */
 .contact-section {
     background-color: #FFFFFF;
     width: 100%;
-    padding: 80px 0 120px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.contact-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 40px;
+    padding: 100px 0 120px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    justify-content: center;
+    overflow: hidden;
 }
 
-.contact-card {
-    background-color: #98E090;
-    border-radius: 24px;
-    padding: 60px 50px 80px 50px;
-    text-align: center;
-    position: relative;
-    margin-bottom: 60px;
-    max-width: 1000px;
+.contact-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    box-shadow: 0 10px 30px rgba(152, 224, 144, 0.2);
+    gap: 40px;
+}
+
+.contact-image-wrapper {
+    flex: 0 0 auto;
+}
+
+.contact-watch-image {
+    max-width: 350px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+}
+
+.contact-image-wrapper.left .contact-watch-image {
+    transform: rotate(-10deg);
+}
+.contact-image-wrapper.right .contact-watch-image {
+    transform: rotate(10deg);
+}
+
+.contact-content {
+    text-align: center;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .contact-logo {
-    margin-bottom: 30px;
-    display: flex;
-    justify-content: center;
+    margin-bottom: 20px;
 }
 
 .contact-logo img {
-    height: 50px;
+    height: 30px;
     width: auto;
     object-fit: contain;
 }
 
 .contact-title {
-    font-size: 3.5rem;
-    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
     color: #333;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     line-height: 1.1;
     letter-spacing: -0.02em;
 }
 
 .contact-description {
-    font-size: 1.2rem;
-    color: #333;
+    font-size: 1.1rem;
+    color: #666;
     line-height: 1.5;
-    margin-bottom: 40px;
-    max-width: 450px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 30px;
 }
 
 .contact-btn {
-    margin-bottom: 0;
-    position: relative;
-    z-index: 2;
+    background-color: #293329;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
 }
 
-.contact-overlay-icon {
-    position: absolute;
-    bottom: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-}
-
-.contact-overlay-icon img {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
+.contact-btn:hover {
+    background-color: #3a473a;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .contact-social-icons {
     display: flex;
-    gap: 30px;
+    gap: 25px;
     align-items: center;
     justify-content: center;
+    margin-top: 60px;
 }
 
 .contact-social-icon {
-    width: 60px;
-    height: 60px;
-    background-color: transparent;
+    width: 50px;
+    height: 50px;
+    background-color: #F0F0F0;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1723,216 +918,58 @@ body {
 }
 
 .contact-social-icon:hover {
+    background-color: #98E090;
     transform: translateY(-3px);
-    color: #98E090;
 }
 
-.contact-social-icon svg {
-    width: 32px;
-    height: 32px;
-}
-
-/* Responsive styles for contact section */
-@media (max-width: 1024px) {
-    .contact-container {
-        padding: 0 30px;
-    }
-    
-    .contact-card {
-        padding: 50px 40px 70px 40px;
-        margin-bottom: 50px;
-    }
-    
-    .contact-title {
-        font-size: 3rem;
-    }
-    
-    .contact-description {
-        font-size: 1.1rem;
-    }
-    
-    .contact-logo img {
-        height: 45px;
-    }
-    
-    .contact-overlay-icon img {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .contact-social-icons {
-        gap: 25px;
-    }
-    
-    .contact-social-icon {
-        width: 55px;
-        height: 55px;
-    }
-    
-    .contact-social-icon svg {
-        width: 28px;
-        height: 28px;
-    }
-}
-
-@media (max-width: 768px) {
-    .contact-section {
-        padding: 60px 0 100px 0;
-    }
-    
-    .contact-container {
-        padding: 0 25px;
-    }
-    
-    .contact-card {
-        padding: 40px 30px 60px 30px;
-        margin-bottom: 40px;
-        border-radius: 20px;
-    }
-    
-    .contact-title {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-    }
-    
-    .contact-description {
-        font-size: 1rem;
-        margin-bottom: 35px;
-    }
-    
-    .contact-logo {
-        margin-bottom: 25px;
-    }
-    
-    .contact-logo img {
-        height: 40px;
-    }
-    
-    .contact-overlay-icon {
-        bottom: -25px;
-    }
-    
-    .contact-overlay-icon img {
-        width: 80px;
-        height: 80px;
-    }
-    
-    .contact-social-icons {
-        gap: 20px;
-    }
-    
-    .contact-social-icon {
-        width: 50px;
-        height: 50px;
-    }
-    
-    .contact-social-icon svg {
-        width: 24px;
-        height: 24px;
-    }
-}
-
-@media (max-width: 480px) {
-    .contact-section {
-        padding: 40px 0 80px 0;
-    }
-    
-    .contact-container {
-        padding: 0 20px;
-    }
-    
-    .contact-card {
-        padding: 35px 25px 50px 25px;
-        margin-bottom: 35px;
-        border-radius: 16px;
-    }
-    
-    .contact-title {
-        font-size: 2rem;
-        margin-bottom: 18px;
-    }
-    
-    .contact-description {
-        font-size: 0.95rem;
-        margin-bottom: 30px;
-    }
-    
-    .contact-logo {
-        margin-bottom: 20px;
-    }
-    
-    .contact-logo img {
-        height: 35px;
-    }
-    
-    .contact-overlay-icon {
-        bottom: -20px;
-    }
-    
-    .contact-overlay-icon img {
-        width: 70px;
-        height: 70px;
-    }
-    
-    .contact-social-icons {
-        gap: 15px;
-    }
-    
-    .contact-social-icon {
-        width: 45px;
-        height: 45px;
-    }
-    
-    .contact-social-icon svg {
-        width: 22px;
-        height: 22px;
-    }
-}
-
-/* Footer Section */
+/* =========================================
+   11. Footer Section
+   ========================================= */
 .footer-section {
     background-color: #FFFFFF;
     width: 100%;
-    padding: 20px 0;
+    padding: 25px 0;
     border-top: 1px solid #E5E5E5;
 }
 
 .footer-container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-item {
+    display: flex;
+    align-items: center;
 }
 
 .footer-left {
     flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.footer-copyright {
-    font-size: 0.9rem;
-    color: #666;
-    line-height: 1.4;
-    margin: 0;
-    max-width: 400px;
     text-align: left;
 }
 
+.footer-copyright {
+    font-size: 0.85rem;
+    color: #888;
+    margin: 0;
+    white-space: nowrap;
+}
+
 .footer-center {
-    flex-shrink: 0;
+    flex: 1;
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin: 0 40px;
+    align-items: center;
 }
 
 .footer-logo {
-    height: 30px;
+    height: 24px;
     width: auto;
     object-fit: contain;
 }
@@ -1942,160 +979,91 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    gap: 30px;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-icon {
+    color: #293329;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-icon:hover {
+    color: #000;
+    transform: translateY(-2px);
+}
+
+.footer-icon svg {
+    width: 20px;
+    height: 20px;
 }
 
 .footer-links {
-    font-size: 0.9rem;
-    color: #666;
-    line-height: 1.4;
+    font-size: 0.85rem;
+    color: #888;
     margin: 0;
     cursor: pointer;
     transition: color 0.3s ease;
-    text-align: right;
+    white-space: nowrap;
 }
 
 .footer-links:hover {
     color: #333;
 }
 
-/* Responsive styles for footer section */
+/* =========================================
+   12. Responsive Design (All Sections)
+   ========================================= */
 @media (max-width: 1024px) {
-    .footer-container {
-        padding: 0 30px;
-    }
+    .content h1 { font-size: 3rem; }
+    .header, .content { padding-left: 40px; padding-right: 40px; }
     
-    .footer-center {
-        margin: 0 30px;
-    }
+    /* Hero on Tablet: Reset fixed height, stack columns */
+    .main-container { height: auto; flex-direction: column; }
+    .left-side, .right-side { width: 100%; height: auto; }
+    .left-side { padding-bottom: 60px; }
+    /* Clip image on tablet */
+    .right-side { height: 500px; overflow: hidden; } 
+    .hero-bg-image { height: 100%; } 
+    /* Hide the floating seal on tablet/mobile as it gets tricky */
+    .floating-red-seal { display: none; }
+
+    .second-section { padding: 80px 0; margin-top: 0; }
+
+    /* Contact */
+    .contact-container { padding: 0 30px; flex-direction: column; gap: 30px; }
+    .contact-image-wrapper { display: none; }
+    .contact-title { font-size: 2.5rem; }
     
-    .footer-logo {
-        height: 32px;
-    }
-    
-    .footer-copyright,
-    .footer-links {
-        font-size: 0.85rem;
-    }
+    /* Footer */
+    .footer-container { flex-direction: column; text-align: center; gap: 20px; }
+    .footer-left, .footer-center, .footer-right { width: 100%; justify-content: center; flex: none; }
+    .footer-right { flex-direction: column; gap: 15px; }
+    .footer-copyright { white-space: normal; }
 }
 
 @media (max-width: 768px) {
-    .footer-section {
-        padding: 30px 0;
-    }
+    .content h1 { font-size: 2.5rem; }
+    .hero-buttons { flex-direction: column; }
+    .btn-dark, .btn-green { width: 100%; text-align: center; }
     
-    .footer-container {
-        flex-direction: column;
-        gap: 25px;
-        padding: 0 25px;
-        text-align: center;
-    }
+    .right-side { height: 400px; }
     
-    .footer-left,
-    .footer-right {
-        flex: none;
-        justify-content: center;
-    }
-    
-    .footer-center {
-        margin: 0;
-        order: -1;
-    }
-    
-    .footer-logo {
-        height: 30px;
-    }
-    
-    .footer-copyright {
-        max-width: 100%;
-        text-align: center;
-    }
-    
-    .footer-links {
-        text-align: center;
-    }
+    .second-content h2 { font-size: 2.5rem; }
+    .team-grid { grid-template-columns: 1fr; gap: 40px; }
+    .how-it-works-container { flex-direction: column-reverse; }
+    .benefits-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 480px) {
-    .footer-section {
-        padding: 25px 0;
-    }
-    
-    .footer-container {
-        gap: 20px;
-        padding: 0 20px;
-    }
-    
-    .footer-logo {
-        height: 28px;
-    }
-    
-    .footer-copyright,
-    .footer-links {
-        font-size: 0.8rem;
-    }
-}
-
-/* Print styles */
-@media print {
-    .social-icons {
-        display: none;
-    }
-    
-    .main-container {
-        flex-direction: column;
-    }
-    
-    .left-side,
-    .right-side {
-        width: 100%;
-    }
-    
-    .second-section {
-        page-break-before: always;
-    }
-    
-    .third-section {
-        display: none;
-    }
-    
-    .stats-section {
-        page-break-inside: avoid;
-    }
-    
-    .about-section {
-        page-break-inside: avoid;
-    }
-    
-    .benefits-section {
-        page-break-inside: avoid;
-    }
-    
-    .faq-section {
-        page-break-inside: avoid;
-    }
-    
-    .contact-section {
-        page-break-inside: avoid;
-    }
-    
-    .footer-section {
-        page-break-inside: avoid;
-    }
-    
-    .arrow-btn {
-        display: none;
-    }
-    
-    .faq-toggle {
-        display: none;
-    }
-    
-    .faq-answer {
-        max-height: none !important;
-        padding: 0 30px 20px 30px !important;
-    }
-    
-    .contact-social-icons {
-        display: none;
-    }
+    .content { padding: 40px 20px; }
+    .content h1 { font-size: 2rem; }
+    .benefits-grid { grid-template-columns: 1fr; }
 }
