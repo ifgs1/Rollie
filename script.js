@@ -21,7 +21,7 @@ const translations = {
         team_role_partner: 'PARTNER',
         team_desc_andres: 'Producto & Tecnología. Líder de producto con experiencia en plataformas de datos; responsable de la tecnología, pricing en tiempo real e integraciones WhatsApp/CRM.',
         team_desc_jd: 'Estrategia & Mercado. Experto en el mercado secundario de relojes de lujo, encargado de la red de socios, autenticación y valoración de piezas exclusivas.',
-        team_desc_ivan: 'Finanzas & Operaciones. Especialista en activos alternativos e inversión, asegurando la solidez financiera y la transparencia en cada transacción de la plataforma.',
+        team_desc_ivan: 'Líder de Ingeniería e Ingeniero de Software con más de 13 años de experiencia en desarrollo móvil y visión emprendedora. Experto en el uso de la IA (LLMs) para diseñar soluciones innovadoras que impulsan la productividad empresarial.',
         team_desc_jm: 'Crecimiento & Alianzas. Enfocado en la expansión de la comunidad Rollie y el desarrollo de relaciones estratégicas con coleccionistas clave en la región.',
 
         // How it works
@@ -89,7 +89,7 @@ const translations = {
         team_role_partner: 'PARTNER',
         team_desc_andres: 'Product & Technology. Product leader with data platform experience; responsible for technology, real-time pricing, and WhatsApp/CRM integrations.',
         team_desc_jd: 'Strategy & Market. Expert in the secondary luxury watch market, in charge of partner network, authentication, and valuation of exclusive pieces.',
-        team_desc_ivan: 'Finance & Operations. Specialist in alternative assets and investment, ensuring financial solidity and transparency in every platform transaction.',
+        team_desc_ivan: 'Engineering Lead with 13+ years of experience in mobile software and an entrepreneurial focus. Architect in innovative solutions using AI and Large Language Models (LLMs) to significantly boost business productivity..',
         team_desc_jm: 'Growth & Partnerships. Focused on expanding the Rollie community and developing strategic relationships with key collectors in the region.',
 
         // How it works
