@@ -178,11 +178,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Event Listeners for Switcher
     langBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const lang = btn.dataset.lang;
+        btn.addEventListener('click', function() { // IMPORTANT: Changed to 'function' to use 'this'
+            const lang = this.dataset.lang;
             updateContent(lang);
+            // **NEW: Track the language switch button click**
+            trackButtonClick(this);
         });
-    });
+}   );
 
     // --- END TRANSLATION FUNCTIONALITY ---
 
@@ -191,6 +193,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     faqQuestions.forEach(question => {
         question.addEventListener('click', function() {
+            // **NEW: Track the click on the question text**
+            trackButtonClick(this); 
+            
             const faqItem = this.parentElement;
             // Removed unused 'isExpanded' variable
             
@@ -212,6 +217,10 @@ document.addEventListener('DOMContentLoaded', function() {
     faqToggleButtons.forEach(button => {
         button.addEventListener('click', function(e) {
             e.stopPropagation(); // Prevent triggering the question click
+
+            // **NEW: Track the click on the toggle button icon**
+            trackButtonClick(this);
+            
             const faqItem = this.closest('.faq-item');
             
             // Close all other FAQ items
@@ -244,19 +253,45 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Button click handlers (Updated selector to include new buttons)
-    const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, .whatsapp-btn, .btn-dark, .btn-green, .contact-btn');
-    
+    // Function to track button clicks with Google Analytics
+    function trackButtonClick(button) {
+        if (typeof gtag === 'function') {
+            const trackingName = button.getAttribute('data-tracking-name') || 
+                                'General_Button_Click';
+            const buttonText = button.textContent.trim().replace(/\s\s+/g, ' '); 
+            
+            gtag('event', 'button_click', {
+                'event_category': 'Engagement',
+                'event_label': trackingName, // e.g., Sell_Hero_Button
+                'value': buttonText,         // e.g., VENDER TU RELOJ
+                'page_path': window.location.pathname
+            });
+            console.log(`GA Event Sent: ${trackingName} - ${buttonText}`);
+        }
+    }
+
+    // Button click handlers
+    const buttons = document.querySelectorAll('.btn-dark, .btn-green, .contact-btn, .whatsapp-btn, .footer-icon, .footer-text-link');
+
     buttons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function(e) {
+            
+            // **NEW LOGIC: Prevents navigation for social media links (footer-icon) with a placeholder href="#".**
+            // This stops the Uncaught SyntaxError from the invalid href="#".
+            if (this.classList.contains('footer-icon') && this.getAttribute('href') === '#') {
+                e.preventDefault();
+            }
+
             // Add click animation
             this.style.transform = 'scale(0.95)';
             setTimeout(() => {
                 this.style.transform = '';
             }, 150);
             
-            // Handle WhatsApp buttons
-            // Added check for various potential button texts in both languages
+            // **Track the button click event** (This is correct)
+            trackButtonClick(this);
+
+            // Handle WhatsApp buttons (This is mostly for buttons/elements that don't already navigate)
             const text = this.textContent.toLowerCase();
             if (this.classList.contains('whatsapp-btn') || 
                 text.includes('whatsapp') || 
@@ -265,12 +300,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 text.includes('buy') ||
                 text.includes('comprar')) {
                 
-                // Replace with actual WhatsApp number
-                const whatsappNumber = '1234567890'; // Replace with real number
-                const message = encodeURIComponent('Hola, me interesa vender/comprar un reloj. / Hello, I am interested in buying/selling a watch.');
-                const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
-                
-                window.open(whatsappUrl, '_blank');
+                // NOTE: Since the floating WhatsApp button is an <a> tag and should have a real link, 
+                // we let it navigate naturally. This logic is primarily for <button> CTAs.
+
+                // Only execute this 'window.open' if the element is a <button> CTA
+                if (this.tagName.toLowerCase() === 'button') {
+                    const whatsappNumber = '1234567890'; // Replace with real number
+                    const message = encodeURIComponent('Hola, me interesa vender/comprar un reloj. / Hello, I am interested in buying/selling a watch.');
+                    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+                    
+                    window.open(whatsappUrl, '_blank');
+                }
             }
         });
     });
@@ -516,3 +556,22 @@ window.RollieUtils = {
     debounce,
     throttle
 };
+
+.footer-links .footer-text-link {
+    /* Remove the default browser underline */
+    text-decoration: none;
+    
+    /* Set the color to match the footer text (usually a darker gray/black) */
+    /* Based on common footer designs, #666 or #999 is often used. 
+       If your footer text is black, use #333 or inherit. 
+       I will use a standard dark gray. */
+    color: #666; /* Adjust this hex code if your original text color was different */
+
+    /* Ensure link doesn't change color when visited */
+    transition: color 0.2s ease;
+}
+
+.footer-links .footer-text-link:hover {
+    /* Optional: Add a subtle hover effect (e.g., slightly darker color) */
+    color: #333;
+}
