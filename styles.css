@@ -199,40 +199,45 @@ body {
 .right-side {
     width: 50%;
     background-color: #293329;
-    height: 100%; 
+    height: 100%;
     position: relative;
     display: flex;
     align-items: flex-start;
-    /* RESTORED: Visible overflow allows the seal to hang out */
-    overflow: visible; 
-    z-index: 6; 
+    overflow: visible; /* Allows image and seal to hang out */
+    z-index: 6;
 }
 
 .hero-bg-image {
     width: 100%;
-    /* FIXED: Height is 100% of the container, fits perfectly */
-    height: 100%; 
+    /* INCREASED to 130%: Distinct overlap over the green section */
+    height: 130%; 
+    position: absolute;
+    top: 0;
+    left: 0;
     object-fit: cover;
     object-position: center;
-    display: block;
-    position: relative;
     z-index: 5;
+    /* Optional: Soft shadow to separate image from green background */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
 }
 
 /* RESTORED: The separate, absolutely positioned Red Seal */
 .floating-red-seal {
     position: absolute;
-    /* Hangs 100px below the hero section */
-    bottom: -100px; 
-    /* Centered horizontally */
+    /* 1. Place the top of the seal exactly at the bottom of the image (130%) */
+    top: 130%; 
+    /* 2. Center Horizontally */
     left: 50%; 
     width: 220px; 
     height: auto;
-    /* Centers the element and tilts it */
-    transform: translateX(-50%) rotate(-10deg);
-    z-index: 20; /* Ensures it's on top of everything */
+    /* 3. TRANSFORMATION MAGIC:
+       - translateX(-50%): Centers it horizontally
+       - translateY(-50%): Pulls it UP by half its height so it sits ON the line
+       - rotate(-10deg): Adds the style */
+    transform: translate(-50%, -50%) rotate(-10deg);
+    z-index: 20;
     pointer-events: none;
-    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.2));
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.3));
 }
 
 /* =========================================
@@ -281,15 +286,19 @@ body {
    ========================================= */
 .third-section {
     background-color: #293329;
-    width: 105%;
+    /* CHANGED: Wider to ensure edges are covered during rotation */
+    width: 110%; 
     height: 120px;
     overflow: hidden;
     position: relative;
     z-index: 4;
-    transform: rotate(-2deg);
-    margin-left: -2.5%;
-    margin-top: -30px;
-    margin-bottom: 20px;
+    /* CHANGED: Clear rotation */
+    transform: rotate(-3deg); 
+    /* CHANGED: Pull left to center the rotated strip */
+    margin-left: -5%; 
+    /* Adjust margin top/bottom to fit the flow */
+    margin-top: -40px; 
+    margin-bottom: 40px;
     display: flex;
     align-items: center;
     border-top: 1px solid rgba(152, 224, 144, 0.1);
@@ -1030,10 +1039,32 @@ body {
     .left-side, .right-side { width: 100%; height: auto; }
     .left-side { padding-bottom: 60px; }
     /* Clip image on tablet */
-    .right-side { height: 500px; overflow: hidden; } 
-    .hero-bg-image { height: 100%; } 
+    .right-side { 
+        height: 500px; 
+        overflow: visible; /* Keep visible so seal hangs out */
+    }
+
+    .hero-bg-image { 
+        height: 100%; 
+        position: absolute; /* Keep absolute to maintain layering */
+    }
+
     /* Hide the floating seal on tablet/mobile as it gets tricky */
-    .floating-red-seal { display: none; }
+    .floating-red-seal { 
+        display: block; 
+        width: 160px; /* Slightly smaller for tablet */
+        
+        /* MATCH THE IMAGE HEIGHT:
+           Image is 100%, so we put seal top at 100% */
+        top: 100%; 
+        
+        /* CENTER IT: */
+        left: 50%;
+        right: auto;
+        
+        /* SAME LOGIC: Pull up by 50% to sit on the line */
+        transform: translate(-50%, -50%) rotate(-10deg);
+    }
 
     .second-section { padding: 80px 0; margin-top: 0; }
 
@@ -1055,6 +1086,13 @@ body {
     .btn-dark, .btn-green { width: 100%; text-align: center; }
     
     .right-side { height: 400px; }
+    
+    .floating-red-seal {
+        width: 130px;
+        /* Logic remains the same: Top 100%, pull up 50% */
+        top: 100%;
+        transform: translate(-50%, -50%) rotate(-10deg);
+    }
     
     .second-content h2 { font-size: 2.5rem; }
     .team-grid { grid-template-columns: 1fr; gap: 40px; }

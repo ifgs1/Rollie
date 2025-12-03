@@ -21,7 +21,7 @@ const translations = {
         team_role_partner: 'PARTNER',
         team_desc_andres: 'Producto & Tecnología. Líder de producto con experiencia en plataformas de datos; responsable de la tecnología, pricing en tiempo real e integraciones WhatsApp/CRM.',
         team_desc_jd: 'Estrategia & Mercado. Experto en el mercado secundario de relojes de lujo, encargado de la red de socios, autenticación y valoración de piezas exclusivas.',
-        team_desc_ivan: 'Líder de Ingeniería e Ingeniero de Software con más de 13 años de experiencia en desarrollo móvil y visión emprendedora. Experto en el uso de la IA (LLMs) para diseñar soluciones innovadoras que impulsan la productividad empresarial.',
+        team_desc_ivan: 'Finanzas & Operaciones. Especialista en activos alternativos e inversión, asegurando la solidez financiera y la transparencia en cada transacción de la plataforma.',
         team_desc_jm: 'Crecimiento & Alianzas. Enfocado en la expansión de la comunidad Rollie y el desarrollo de relaciones estratégicas con coleccionistas clave en la región.',
 
         // How it works
@@ -53,14 +53,14 @@ const translations = {
 
         // FAQ
         faq_title: 'PREGUNTAS FRECUENTES',
-        faq_q1: '¿Cuál es su política de envío?',
-        faq_a1: 'Ofrecemos envío mundial gratuito en todos los relojes, totalmente asegurados y enviados por FedEx dentro de 1–2 días hábiles después del pago. Los compradores internacionales son responsables de los impuestos y aranceles locales. Los reembolsos por pérdida o robo se realizan solo tras la aprobación del seguro.',
-        faq_q2: '¿Existen excepciones o artículos que no se pueden devolver?',
-        faq_a2: ' Sí. Algunos artículos no son retornables, incluyendo relojes buscados específicamente por solicitud, piezas de pedido especial y artículos personalizados o hechos a medida.',
-        faq_q3: ' ¿Qué métodos de pago aceptan?',
-        faq_a3: 'Las compras o venta de relojes se pagan únicamente por transferencia bancaria, con instrucciones después de la venta. El comprador asume las comisiones y los envíos se realizan solo después de recibir los fondos.',
-        faq_q4: '¿Cómo me protege Rollie de relojes falsos?',
-        faq_a4: 'Rollie tiene una política de cero tolerancia con los relojes falsos. Cada pieza que pasa por nosotros es verificada profesionalmente, y asumimos total responsabilidad por su autenticidad. Si surge algún problema, lo afrontamos nosotros — sin excusas ni complicaciones. Nuestro objetivo es simple: una experiencia segura y transparente, con total confianza.',
+        faq_q1: '¿Cómo protegen mi reloj durante el envío?',
+        faq_a1: 'Usamos guías prepagadas con seguro a valor declarado y registramos unboxing en video. Implementamos antifraude: foto con código único, ID + selfie (> USD 5k) y, si es necesario, videollamada breve.',
+        faq_q2: '¿Qué pasa si no acepto la oferta?',
+        faq_a2: 'No hay problema, no hay costo ni compromiso.',
+        faq_q3: '¿En qué países operan?',
+        faq_a3: 'Operamos en México, Colombia, Perú, Chile y Argentina.',
+        faq_q4: '¿Aceptan relojes sin papeles?',
+        faq_a4: 'Sí, aceptamos relojes sin papeles previa verificación exhaustiva.',
 
         // Contact & Footer
         contact_title: '¿Listo para cotizar?',
@@ -89,7 +89,7 @@ const translations = {
         team_role_partner: 'PARTNER',
         team_desc_andres: 'Product & Technology. Product leader with data platform experience; responsible for technology, real-time pricing, and WhatsApp/CRM integrations.',
         team_desc_jd: 'Strategy & Market. Expert in the secondary luxury watch market, in charge of partner network, authentication, and valuation of exclusive pieces.',
-        team_desc_ivan: 'Engineering Lead with 13+ years of experience in mobile software and an entrepreneurial focus. Architect in innovative solutions using AI and Large Language Models (LLMs) to significantly boost business productivity.',
+        team_desc_ivan: 'Finance & Operations. Specialist in alternative assets and investment, ensuring financial solidity and transparency in every platform transaction.',
         team_desc_jm: 'Growth & Partnerships. Focused on expanding the Rollie community and developing strategic relationships with key collectors in the region.',
 
         // How it works
@@ -121,14 +121,14 @@ const translations = {
 
         // FAQ
         faq_title: 'FREQUENTLY ASKED QUESTIONS',
-        faq_q1: 'What is your shipping policy?',
-        faq_a1: 'We offer free worldwide shipping on all watches, fully insured and sent via FedEx within 1–2 business days after payment clears. International buyers are responsible for local taxes and duties. Lost or stolen packages are refunded only once the insurance claim is approved.',
-        faq_q2: 'Are there any exceptions or items that cannot be returned?',
-        faq_a2: 'Yes. Certain items are non-returnable, including watches sourced specifically by request, special-order pieces, and custom or personalized items.',
-        faq_q3: 'What payment methods do you accept?',
-        faq_a3: 'Watch purchases or sold are paid by bank wire only, with instructions provided after sale. Buyers cover any wire fees, and items ship only after funds are received.',
-        faq_q4: 'How does Rollie protect me from counterfeits?',
-        faq_a4: 'Rollie has a zero-tolerance policy for fake watches. Every piece that goes through us is professionally verified, and we take full responsibility for authenticity. If an issue ever arises, we own it — no excuses, no runaround. Our goal is simple: a safe, transparent experience with total confidence.',
+        faq_q1: 'How do you protect my watch during shipping?',
+        faq_a1: 'We use prepaid labels with declared value insurance and video record the unboxing. We implement anti-fraud: photo with unique code, ID + selfie (> USD 5k), and if necessary, a brief video call.',
+        faq_q2: 'What happens if I don’t accept the offer?',
+        faq_a2: 'No problem, there is no cost or commitment.',
+        faq_q3: 'In which countries do you operate?',
+        faq_a3: 'We operate in Mexico, Colombia, Peru, Chile, and Argentina.',
+        faq_q4: 'Do you accept watches without papers?',
+        faq_a4: 'Yes, we accept watches without papers subject to exhaustive verification.',
 
         // Contact & Footer
         contact_title: 'Ready for a quote?',
