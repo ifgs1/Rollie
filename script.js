@@ -138,6 +138,28 @@ const translations = {
     }
 };
 
+// ===============================================
+// ** CRITICAL FIX 1: Move tracking function to global scope **
+// This ensures all event listeners (Lang, FAQ, Buttons) can call it.
+// ===============================================
+function trackButtonClick(button) {
+    if (typeof gtag === 'function') {
+        // Fallback for elements without data-tracking-name
+        const trackingName = button.getAttribute('data-tracking-name') || 
+                            'General_Button_Click';
+        const buttonText = button.textContent.trim().replace(/\s\s+/g, ' '); 
+        
+        gtag('event', 'button_click', {
+            'event_category': 'Engagement',
+            'event_label': trackingName, // e.g., Sell_Hero_Button
+            'value': buttonText,         // e.g., VENDER TU RELOJ
+            'page_path': window.location.pathname
+        });
+        console.log(`GA Event Sent: ${trackingName} - ${buttonText}`);
+    }
+}
+
+
 document.addEventListener('DOMContentLoaded', function() {
     
     // --- TRANSLATION FUNCTIONALITY ---
@@ -178,13 +200,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Event Listeners for Switcher
     langBtns.forEach(btn => {
-        btn.addEventListener('click', function() { // IMPORTANT: Changed to 'function' to use 'this'
+        btn.addEventListener('click', function() { 
             const lang = this.dataset.lang;
             updateContent(lang);
-            // **NEW: Track the language switch button click**
             trackButtonClick(this);
         });
-}   );
+    });
 
     // --- END TRANSLATION FUNCTIONALITY ---
 
@@ -193,11 +214,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     faqQuestions.forEach(question => {
         question.addEventListener('click', function() {
-            // **NEW: Track the click on the question text**
             trackButtonClick(this); 
             
             const faqItem = this.parentElement;
-            // Removed unused 'isExpanded' variable
             
             // Close all other FAQ items
             document.querySelectorAll('.faq-item').forEach(item => {
@@ -218,7 +237,6 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function(e) {
             e.stopPropagation(); // Prevent triggering the question click
 
-            // **NEW: Track the click on the toggle button icon**
             trackButtonClick(this);
             
             const faqItem = this.closest('.faq-item');
@@ -235,49 +253,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Smooth scrolling for anchor links
-    const links = document.querySelectorAll('a[href^="#"]');
-    
-    links.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
+    // ===============================================
+    // ** CRITICAL FIX 2: REMOVED CONFLICTING LOGIC **
+    // The previous 'Smooth scrolling for anchor links' block was removed here. 
+    // This was the source of the cascading errors and conflicts with the language/FAQ/button listeners.
+    // ===============================================
 
-    // Function to track button clicks with Google Analytics
-    function trackButtonClick(button) {
-        if (typeof gtag === 'function') {
-            const trackingName = button.getAttribute('data-tracking-name') || 
-                                'General_Button_Click';
-            const buttonText = button.textContent.trim().replace(/\s\s+/g, ' '); 
-            
-            gtag('event', 'button_click', {
-                'event_category': 'Engagement',
-                'event_label': trackingName, // e.g., Sell_Hero_Button
-                'value': buttonText,         // e.g., VENDER TU RELOJ
-                'page_path': window.location.pathname
-            });
-            console.log(`GA Event Sent: ${trackingName} - ${buttonText}`);
-        }
-    }
-
-    // Button click handlers
+    // Button click handlers (FIXED: The main handler is now the central point)
     const buttons = document.querySelectorAll('.btn-dark, .btn-green, .contact-btn, .whatsapp-btn, .footer-icon, .footer-text-link');
 
     buttons.forEach(button => {
         button.addEventListener('click', function(e) {
             
-            // **NEW LOGIC: Prevents navigation for social media links (footer-icon) with a placeholder href="#".**
-            // This stops the Uncaught SyntaxError from the invalid href="#".
+            // **Prevent navigation for placeholder links**
+            // This stops the SyntaxError and prevents conflicts with tracking.
             if (this.classList.contains('footer-icon') && this.getAttribute('href') === '#') {
                 e.preventDefault();
             }
@@ -288,10 +277,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.style.transform = '';
             }, 150);
             
-            // **Track the button click event** (This is correct)
+            // Track the button click event
             trackButtonClick(this);
 
-            // Handle WhatsApp buttons (This is mostly for buttons/elements that don't already navigate)
+            // Handle WhatsApp buttons
             const text = this.textContent.toLowerCase();
             if (this.classList.contains('whatsapp-btn') || 
                 text.includes('whatsapp') || 
@@ -300,11 +289,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 text.includes('buy') ||
                 text.includes('comprar')) {
                 
-                // NOTE: Since the floating WhatsApp button is an <a> tag and should have a real link, 
-                // we let it navigate naturally. This logic is primarily for <button> CTAs.
-
                 // Only execute this 'window.open' if the element is a <button> CTA
                 if (this.tagName.toLowerCase() === 'button') {
+                    // Prevent default action for buttons that open a new window
+                    e.preventDefault(); 
+                    
                     const whatsappNumber = '1234567890'; // Replace with real number
                     const message = encodeURIComponent('Hola, me interesa vender/comprar un reloj. / Hello, I am interested in buying/selling a watch.');
                     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
@@ -556,22 +545,3 @@ window.RollieUtils = {
     debounce,
     throttle
 };
-
-.footer-links .footer-text-link {
-    /* Remove the default browser underline */
-    text-decoration: none;
-    
-    /* Set the color to match the footer text (usually a darker gray/black) */
-    /* Based on common footer designs, #666 or #999 is often used. 
-       If your footer text is black, use #333 or inherit. 
-       I will use a standard dark gray. */
-    color: #666; /* Adjust this hex code if your original text color was different */
-
-    /* Ensure link doesn't change color when visited */
-    transition: color 0.2s ease;
-}
-
-.footer-links .footer-text-link:hover {
-    /* Optional: Add a subtle hover effect (e.g., slightly darker color) */
-    color: #333;
-}
