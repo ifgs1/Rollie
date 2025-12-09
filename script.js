@@ -13,12 +13,12 @@ const translations = {
         
         // About
         about_title: 'SOBRE ROLLIE',
-        about_desc: 'Rollie es una comunidad de relojes creada para coleccionistas modernos que valoran el descubrimiento, la claridad y entender realmente qué está pasando en el mercado. En un mundo donde los precios pueden sentirse confusos y la información viaja rápido —pero no siempre con precisión— Rollie aporta honestidad, perspectiva y una visión fundamentada. Ofrecemos un espacio donde coleccionar con criterio se siente natural, no abrumador, y donde el conocimiento real importa más que el ruido. Construida sobre la curiosidad compartida y un amor genuino por la relojería, Rollie ayuda a los coleccionistas a moverse con confianza y mantenerse conectados con lo que verdaderamente importa.',
+        about_desc: 'Rollie es una comunidad de relojes creada para coleccionistas modernos que valoran el descubrimiento, la claridad y entender realmente qué está pasando en el mercado. En un mundo donde los precios pueden sentirse confusos y la información viaja rápido, pero no siempre con precisión. Rollie aporta honestidad, perspectiva y una visión fundamentada. Ofrecemos un espacio donde coleccionar con criterio se siente natural, no abrumador, y donde el conocimiento real importa más que el ruido. Construida sobre la curiosidad compartida y un amor genuino por la relojería, Rollie ayuda a los coleccionistas a moverse con confianza y mantenerse conectados con lo que verdaderamente importa.',
         
         // Team
         team_title: 'EL EQUIPO',
         team_role_co: 'CO-FOUNDER',
-        team_role_partner: 'PARTNER',
+        team_role_partner: 'COUNTRY MANAGER',
         team_desc_andres: 'Especializado en crear productos digitales que mejoran la eficiencia y la experiencia del cliente. Ha fundado startups enfocados en tecnología y experiencia del usuario. Con más de 9 años de experiencia en estrategia y analítica, conecta objetivos de negocio con tecnología para entregar valor real a escala.',
         team_desc_jd: 'Emprendedor con más de una década de experiencia en relojería de alta gama. Con base en Miami, ha fundado varias empresas dedicadas a la curaduría y autenticación de piezas excepcionales.',
         team_desc_ivan: 'Líder de Ingeniería e Ingeniero de Software con más de 13 años de experiencia en desarrollo móvil y visión emprendedora. Experto en el uso de la IA (LLMs) para diseñar soluciones innovadoras que impulsan la productividad empresarial.',
@@ -82,12 +82,12 @@ const translations = {
         
         // About
         about_title: 'ABOUT ROLLIE',
-        about_desc: 'Rollie is a watch community shaped for modern collectors who care about discovery, clarity, and understanding what’s actually going on in the market. In a world where pricing can feel cloudy and information loosely fast — but not always accurate — Rollie brings honesty, perspective, and a grounded point of view. We offer a space where informed collecting feels natural, not overwhelming, and where real insight matters more than noise. Built around shared curiosity and a genuine love for watches. Rollie helps collectors move with confidence and stay connected to what truly counts.',
+        about_desc: 'Rollie is a watch community shaped for modern collectors who care about discovery, clarity, and understanding what’s actually going on in the market. In a world where pricing can feel cloudy and information travels fast, but not always accurately, Rollie brings honesty, perspective, and a grounded point of view. We offer a space where informed collecting feels natural, not overwhelming, and where real insight matters more than noise. Built around shared curiosity and a genuine love for watches, Rollie helps collectors move with confidence and stay connected to what truly counts.',
         
         // Team
         team_title: 'THE TEAM',
         team_role_co: 'CO-FOUNDER',
-        team_role_partner: 'PARTNER',
+        team_role_partner: 'COUNTRY MANAGER',
         team_desc_andres: 'Specializes in building digital products that improve efficiency and customer experience. He has founded startups focused on technology and user experience. With over 9 years of experience in strategy and analytics, he connects business goals with technology to deliver real value at scale.',
         team_desc_jd: 'Entrepreneur with over a decade of experience in fine watches. Based in Miami, he has founded several companies dedicated to the curation and authentication of exceptional timepieces.',
         team_desc_ivan: 'Engineering Lead with 13+ years of experience in mobile software and an entrepreneurial focus. Architect in innovative solutions using AI and Large Language Models (LLMs) to significantly boost business productivity..',
@@ -255,20 +255,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ===============================================
-    // ** CRITICAL FIX 2: REMOVED CONFLICTING LOGIC **
-    // The previous 'Smooth scrolling for anchor links' block was removed here. 
-    // This was the source of the cascading errors and conflicts with the language/FAQ/button listeners.
-    // ===============================================
-
     // Button click handlers (FIXED: The main handler is now the central point)
     const buttons = document.querySelectorAll('.btn-dark, .btn-green, .contact-btn, .whatsapp-btn, .footer-icon, .footer-text-link');
 
     buttons.forEach(button => {
         button.addEventListener('click', function(e) {
             
-            // **Prevent navigation for placeholder links**
-            // This stops the SyntaxError and prevents conflicts with tracking.
             if (this.classList.contains('footer-icon') && this.getAttribute('href') === '#') {
                 e.preventDefault();
             }
@@ -280,28 +272,24 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 150);
             
             // Track the button click event
-            trackButtonClick(this);
+            trackButtonClick(this); 
 
-            // Handle WhatsApp buttons
             const text = this.textContent.toLowerCase();
-            if (this.classList.contains('whatsapp-btn') || 
-                text.includes('whatsapp') || 
-                text.includes('vender') ||
-                text.includes('sell') || 
-                text.includes('buy') ||
-                text.includes('comprar')) {
-                
-                // Only execute this 'window.open' if the element is a <button> CTA
-                if (this.tagName.toLowerCase() === 'button') {
-                    // Prevent default action for buttons that open a new window
-                    e.preventDefault(); 
-                    
-                    const whatsappNumber = '1234567890'; // Replace with real number
-                    const message = encodeURIComponent('Hola, me interesa vender/comprar un reloj. / Hello, I am interested in buying/selling a watch.');
-                    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
-                    
-                    window.open(whatsappUrl, '_blank');
-                }
+            let targetUrl = null;
+
+            if (text.includes('vende tu reloj') || text.includes('sell my watch')) {
+                targetUrl = 'https://wa.me/message/6YBWR6ONL6UQL1';
+            } 
+            else if (text.includes('comprar tu reloj') || text.includes('buy your watch')) {
+                targetUrl = 'https://chat.whatsapp.com/GecqbY2Lhea6bWDvm2p6lu?mode=wwt';
+            } 
+            else if (this.classList.contains('contact-btn') || this.classList.contains('whatsapp-btn')) {
+                targetUrl = 'https://wa.me/message/6YBWR6ONL6UQL1'; 
+            }
+
+            if (targetUrl) {
+                e.preventDefault(); 
+                window.open(targetUrl, '_blank');
             }
         });
     });
