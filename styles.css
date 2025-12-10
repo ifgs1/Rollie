@@ -302,7 +302,7 @@ h1, h2, h3, h4, h5, h6,
 .second-section {
     background-color: #98E090;
     width: 100%;
-    padding: 220px 0 100px 0; 
+    padding: 300px 0 220px 0;
     position: relative;
     z-index: 1; 
     margin-top: 0; 
@@ -934,7 +934,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .faq-item.expanded .faq-answer {
-    max-height: 200px;
+    max-height: 1000px;
     padding: 0 30px 30px 30px;
 }
 
@@ -1368,6 +1368,10 @@ h1, h2, h3, h4, h5, h6,
         padding: 0 10px;
         word-wrap: break-word; 
     }
+
+    .second-section {
+        padding: 150px 0 140px 0; 
+    }
 }
 
 @media (max-width: 480px) {
@@ -1464,5 +1468,9 @@ h1, h2, h3, h4, h5, h6,
     
     .faq-container {
         padding: 0 20px; 
+    }
+
+    .second-section {
+        padding: 120px 0 120px 0; 
     }
 }
