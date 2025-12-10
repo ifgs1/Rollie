@@ -1,4 +1,50 @@
 /* =========================================
+   0. Custom Font Loading (REBAR)
+   ========================================= */
+@font-face {
+    font-family: 'Rebar';
+    src: url('fonts/Rebar-E42Jl.otf') format('opentype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Rebar';
+    src: url('fonts/Rebar-SemiBold.woff2') format('woff2'),
+         url('fonts/Rebar-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rebar';
+    src: url('fonts/Rebar-Bold.woff2') format('woff2'),
+         url('fonts/Rebar-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rebar';
+    src: url('fonts/Rebar-ExtraBold.woff2') format('woff2'),
+         url('fonts/Rebar-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rebar';
+    src: url('fonts/Rebar-Black.woff2') format('woff2'),
+         url('fonts/Rebar-Black.woff') format('woff');
+    font-weight: 900; 
+    font-style: normal;
+    font-display: swap;
+}
+
+/* =========================================
    1. Reset and Base Styles
    ========================================= */
 * {
@@ -11,11 +57,17 @@ html {
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Inter', sans-serif;
     line-height: 1.5;
     color: #333;
     background-color: #fff;
     overflow-x: hidden;
+    font-weight: 600; 
+}
+
+h1, h2, h3, h4, h5, h6, 
+.btn-dark, .btn-green, .contact-btn, .lang-btn {
+    font-family: 'Rebar', sans-serif;
 }
 
 /* =========================================
@@ -23,14 +75,12 @@ body {
    ========================================= */
 .main-container {
     display: flex;
-    /* Fixed height for the compact look on the left */
     height: 720px; 
     width: 100%;
     position: relative;
     z-index: 10;
 }
 
-/* Left Side - White Background */
 .left-side {
     width: 50%;
     background-color: #ffffff;
@@ -41,7 +91,6 @@ body {
     z-index: 5;
 }
 
-/* Header */
 .header {
     position: absolute;
     top: 0;
@@ -49,8 +98,9 @@ body {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Ensures logo left, switcher right */
-    padding: 30px 60px;
+    justify-content: space-between;
+    padding: 50px 60px 30px 60px; 
+    
     z-index: 10;
 }
 
@@ -59,7 +109,6 @@ body {
     width: auto;
 }
 
-/* Language Switcher Styles */
 .lang-switcher {
     display: flex;
     align-items: center;
@@ -69,7 +118,7 @@ body {
 .lang-btn {
     background: none;
     border: none;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Rebar', sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: #999;
@@ -94,8 +143,7 @@ body {
 
 /* Main Content Area */
 .content {
-    /* Compact padding for the 720px height */
-    padding: 100px 60px 0 60px;
+    padding: 60px 60px 0 60px; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -104,66 +152,79 @@ body {
 
 /* Hero Typography */
 .content h1 {
-    font-family: 'Inter', sans-serif;
-    font-size: 3.5rem;
-    font-weight: 300;
-    line-height: 1.1;
-    color: #000;
-    margin-bottom: 20px;
-    letter-spacing: -0.03em;
+    font-family: 'Roboto', sans-serif; 
+    font-weight: 300; /* Regular */
+    font-size: 60px;  /* Updated to 45px */
+    line-height: 1.2; /* Adjusted line height for the smaller text size */
+    color: #293329;   /* Dark Green */
+    margin-bottom: 25px;
+    letter-spacing: -0.02em;
 }
 
 .highlight-text {
-    font-weight: 900;
-    color: #000;
+    font-family: 'Rebar', sans-serif; 
+    font-weight: 100; /* Regular */
+    font-size: 60px;  /* Same size as surrounding text */
+    color: #293329;   /* Same color */
 }
 
 .subtitle {
-    font-size: 1.05rem;
-    color: #666;
-    margin-bottom: 30px;
-    line-height: 1.5;
-    max-width: 450px;
+    font-family: 'Helvetica', 'Arial', sans-serif; 
+    font-size: 18px; /* Exact size requested */
+    font-weight: 400; /* Regular */
+    color: #555;
+    margin-bottom: 35px;
+    line-height: 1.4; 
+    max-width: 650px;
 }
 
 /* Buttons */
 .hero-buttons {
     display: flex;
     gap: 15px;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
 .btn-dark {
-    background-color: #000000;
-    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif; 
+    font-weight: 500; 
+    font-size: 14px; 
+    background-color: #293329;
+    color: #98E090;
     border: none;
-    padding: 15px 30px;
+    padding: 16px 32px; 
     border-radius: 6px;
-    font-size: 13px;
-    font-weight: 700;
     cursor: pointer;
     transition: all 0.3s ease;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.02em; 
+    line-height: 1;
 }
 
 .btn-dark:hover {
-    background-color: #333;
+    background-color: #3a473a;
     transform: translateY(-2px);
 }
 
+.btn-dark:hover, .btn-green:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
 .btn-green {
+    font-family: 'Roboto', sans-serif; 
+    font-weight: 500; 
+    font-size: 14px; 
     background-color: #98E090;
-    color: #000000;
+    color: #293329;
     border: none;
-    padding: 15px 30px;
+    padding: 16px 32px;
     border-radius: 6px;
-    font-size: 13px;
-    font-weight: 700;
     cursor: pointer;
     transition: all 0.3s ease;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.02em;
+    line-height: 1;
 }
 
 .btn-green:hover {
@@ -171,12 +232,12 @@ body {
     transform: translateY(-2px);
 }
 
-/* Feature Tags Grid */
 .feature-tags-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px 20px;
-    max-width: 480px;
+    grid-template-columns: repeat(2, auto); 
+    gap: 15px 40px;
+    justify-content: start; 
+    max-width: 600px;
 }
 
 .feature-item {
@@ -186,19 +247,20 @@ body {
 }
 
 .check-icon {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     object-fit: contain;
 }
 
 .feature-item span {
-    font-size: 13px;
-    font-weight: 500;
-    color: #333;
+    font-family: 'Roboto', sans-serif; 
+    font-weight: 400; 
+    font-size: 14px; 
+    color: #828B82; 
     white-space: nowrap;
+    letter-spacing: 0.02em;
 }
 
-/* Right Side - Image Container */
 .right-side {
     width: 50%;
     background-color: #293329;
@@ -206,13 +268,12 @@ body {
     position: relative;
     display: flex;
     align-items: flex-start;
-    overflow: visible; /* Allows image and seal to hang out */
+    overflow: visible; 
     z-index: 6;
 }
 
 .hero-bg-image {
     width: 100%;
-    /* INCREASED to 130%: Distinct overlap over the green section */
     height: 130%; 
     position: absolute;
     top: 0;
@@ -220,24 +281,16 @@ body {
     object-fit: cover;
     object-position: center;
     z-index: 5;
-    /* Optional: Soft shadow to separate image from green background */
     box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
 }
 
-/* RESTORED: The separate, absolutely positioned Red Seal */
 .floating-red-seal {
     position: absolute;
-    /* 1. Place the top of the seal exactly at the bottom of the image (130%) */
     top: 130%; 
-    /* 2. Center Horizontally */
     left: 50%; 
     width: 220px; 
     height: auto;
-    /* 3. TRANSFORMATION MAGIC:
-       - translateX(-50%): Centers it horizontally
-       - translateY(-50%): Pulls it UP by half its height so it sits ON the line
-       - rotate(-10deg): Adds the style */
-    transform: translate(-50%, -50%) rotate(-10deg);
+    transform: translate(-50%, -50%) rotate(5deg);
     z-index: 20;
     pointer-events: none;
     filter: drop-shadow(0 15px 30px rgba(0,0,0,0.3));
@@ -249,11 +302,9 @@ body {
 .second-section {
     background-color: #98E090;
     width: 100%;
-    /* Padding ensures text clears the hanging seal */
     padding: 220px 0 100px 0; 
     position: relative;
     z-index: 1; 
-    /* Margin not strictly needed if padding is sufficient, but okay to keep */
     margin-top: 0; 
 }
 
@@ -266,61 +317,92 @@ body {
 }
 
 .second-content h2 {
-    font-family: 'Inter', sans-serif;
-    font-weight: 900;
-    font-size: 4rem;
+    font-family: 'Rebar', sans-serif;
+    font-weight: 900; 
+    font-size: 5rem; 
     text-transform: uppercase;
     color: #293329;
     margin-bottom: 30px;
-    letter-spacing: -0.02em;
-    line-height: 1;
+    letter-spacing: -0.04em; 
+    line-height: 0.9;
 }
 
 .second-description {
-    font-size: 1.25rem;
+    font-family: 'Inter', sans-serif; 
+    font-size: 1.15rem; 
     font-weight: 400;
     color: #293329;
-    line-height: 1.5;
-    max-width: 850px;
+    line-height: 1.6;
+    max-width: 800px;
 }
 
 /* =========================================
    4. Third Section - Brand Strip
    ========================================= */
+
 .third-section {
-    background-color: #293329;
-    /* CHANGED: Wider to ensure edges are covered during rotation */
-    width: 110%; 
-    height: 120px;
-    overflow: hidden;
     position: relative;
-    z-index: 4;
-    /* CHANGED: Clear rotation */
-    transform: rotate(-3deg); 
-    /* CHANGED: Pull left to center the rotated strip */
-    margin-left: -5%; 
-    /* Adjust margin top/bottom to fit the flow */
-    margin-top: -40px; 
-    margin-bottom: 40px;
+    z-index: 10; 
+    
+    /* Pulls the strip UP into the green section */
+    margin-top: -80px;    
+    
+    /* Pushes the next section down */
+    margin-bottom: 40px;  
+    
+    height: 120px;
+    width: 100%;
+    transform: none; 
+    background: transparent;
+    overflow: visible;
+}
+
+.brand-strip-rotated {
+    /* 1. FORCE THE DARK BACKGROUND */
+    background-color: #293329 !important;
+    
+    /* 2. FORCE THE ROTATION */
+    transform: rotate(-3deg) !important;
+    transform-origin: center;
+    
+    /* 3. ENSURE WIDTH COVERS SCREEN EDGES */
+    width: 110%;
+    margin-left: -5%;
+    
+    height: 100%;
     display: flex;
     align-items: center;
+    overflow: hidden; 
+    
+    /* Border Styling */
     border-top: 1px solid rgba(152, 224, 144, 0.1);
     border-bottom: 1px solid rgba(152, 224, 144, 0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 .logo-strip {
     width: 100%;
     display: flex;
     align-items: center;
+    overflow: hidden; 
 }
 
 .logo-pattern {
     display: flex;
     align-items: center;
     gap: 60px;
+    
+    /* ANIMATION: Runs for 30s infinitely */
     animation: scroll-logos 30s linear infinite;
-    white-space: nowrap;
+    
+    /* CRITICAL FIXES FOR SQUISHING: */
+    width: max-content;
+    min-width: 100%;
+    flex-shrink: 0;
+    
+    white-space: nowrap; 
     padding-left: 0;
+    will-change: transform; 
 }
 
 .brand-logo-img {
@@ -328,6 +410,7 @@ body {
     width: auto;
     object-fit: contain;
     opacity: 0.9;
+    flex-shrink: 0; /* Prevents logos from shrinking */
     transition: opacity 0.3s ease;
 }
 
@@ -335,11 +418,16 @@ body {
     opacity: 1;
 }
 
+/* KEYFRAMES MUST BE AT THE END OF THE FILE OR BLOCK */
 @keyframes scroll-logos {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% { 
+        transform: translateX(0); 
+    }
+    100% { 
+        /* Scrolls half the width (since we duplicated the logos) */
+        transform: translateX(-50%); 
+    }
 }
-
 /* =========================================
    5. Team Section
    ========================================= */
@@ -361,14 +449,13 @@ body {
 }
 
 .team-main-title {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Rebar', sans-serif;
     font-weight: 900;
-    font-size: 3.5rem;
+    font-size: 4.5rem;
     text-transform: uppercase;
     color: #293329;
-    margin-bottom: 60px;
-    letter-spacing: -0.02em;
-    text-align: center;
+    margin-bottom: 70px;
+    letter-spacing: -0.03em;
 }
 
 .team-grid {
@@ -383,7 +470,6 @@ body {
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
-    /* Ensures the card doesn't stretch weirdly */
     width: 100%; 
 }
 
@@ -412,38 +498,40 @@ body {
 .team-info { width: 100%; }
 
 .team-name {
-    font-family: 'Inter', sans-serif;
-    font-weight: 900;
-    font-size: 1.2rem;
+    font-family: 'Rebar', sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
     text-transform: uppercase;
     color: #000;
-    margin-bottom: 5px;
-    line-height: 1.2;
+    margin-bottom: 4px;
+    line-height: 1.1;
 }
 
 .team-role {
+    font-family: 'Roboto', sans-serif; 
+    font-size: 18px; 
+    font-weight: 500;
+    color: #293329;
     display: block;
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: #666;
     margin-bottom: 15px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
 .team-description {
-    font-size: 0.9rem;
-    color: #444;
+    font-family: 'Roboto', sans-serif; 
+    font-size: 14px; 
+    font-weight: 400; 
+    color: #828B82;
     line-height: 1.5;
     margin: 0;
 }
 
-/* --- UPDATED CREDENTIALS / LOGO STYLES --- */
 .team-credentials {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-    gap: 12px; /* Space between the rows */
+    gap: 12px; 
     width: 100%;
 }
 
@@ -454,22 +542,33 @@ body {
     flex-wrap: wrap;
 }
 
-/* Style for the first two logos (Top Row) */
 .cred-img-small {
     height: 25px; 
     width: auto;
     object-fit: contain;
-    /* CRITICAL: Prevents logos from forcing the column to widen */
     max-width: 100%; 
 }
 
-/* Style for the bottom logo (Bottom Row) */
 .cred-img-wide {
     height: 35px; 
     width: auto;
     object-fit: contain;
-    /* CRITICAL: Prevents logos from forcing the column to widen */
     max-width: 100%;
+}
+
+.creds-top-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.creds-bottom-row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 /* =========================================
@@ -521,14 +620,14 @@ body {
 }
 
 .how-title {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Rebar', sans-serif;
     font-weight: 900;
-    font-size: 3.5rem;
-    line-height: 1;
+    font-size: 4rem;
+    line-height: 0.95;
     color: #293329;
     margin-bottom: 50px;
     text-transform: uppercase;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
 }
 
 .steps-list {
@@ -551,9 +650,10 @@ body {
 }
 
 .step-text {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #333;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #293329;
     line-height: 1.3;
     margin: 0;
 }
@@ -743,14 +843,15 @@ body {
 }
 
 .faq-title {
-    font-size: 3.5rem;
+    font-family: 'Rebar', sans-serif;
+    font-size: 4rem;
     font-weight: 900;
     color: #333;
     margin-bottom: 60px;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    text-align: center;
+    line-height: 1;
+    letter-spacing: -0.03em;
     text-transform: uppercase;
+    text-align: center;
 }
 
 .faq-list {
@@ -788,12 +889,11 @@ body {
 }
 
 .faq-question span {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #333;
+    font-family: 'Roboto', sans-serif; /* Roboto */
+    font-weight: 500; /* Medium */
+    font-size: 16px; /* Requested size */
+    color: #293329; /* Requested Dark Green */
     line-height: 1.4;
-    flex: 1;
-    margin-right: 20px;
 }
 
 .faq-toggle {
@@ -839,9 +939,11 @@ body {
 }
 
 .faq-answer p {
-    font-size: 1rem;
-    color: #666;
-    line-height: 1.6;
+    font-family: 'Roboto', sans-serif; /* Roboto */
+    font-weight: 400; /* Regular */
+    font-size: 14px; /* Requested size */
+    color: #293329; /* Requested Dark Green */
+    line-height: 1.6; /* Slightly more spacing for readability */
     margin: 0;
     padding-top: 10px;
 }
@@ -908,34 +1010,38 @@ body {
 }
 
 .contact-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 3rem;
-    font-weight: 900;
-    color: #333;
+    font-family: 'Roboto', sans-serif; 
+    font-size: 40px; 
+    font-weight: 420; 
+    color: #293329; 
     margin-bottom: 20px;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    line-height: 1.2;
+    letter-spacing: -0.01em; 
 }
 
 .contact-description {
-    font-size: 1.1rem;
-    color: #666;
+    font-family: 'Helvetica', 'Arial', sans-serif; 
+    font-size: 14px; 
+    font-weight: 400; 
+    color: #293329; 
     line-height: 1.5;
     margin-bottom: 30px;
 }
 
 .contact-btn {
-    background-color: #293329;
-    color: #fff;
-    padding: 15px 30px;
+    font-family: 'Roboto', sans-serif; 
+    font-weight: 500; 
     font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    border-radius: 6px;
-    transition: all 0.3s ease;
+    background-color: #293329;
+    color: #98E090;
     border: none;
+    padding: 16px 32px; 
+    border-radius: 6px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.02em; 
+    line-height: 1;
 }
 
 .contact-btn:hover {
@@ -973,17 +1079,16 @@ body {
 .contact-section {
     padding: 80px 60px;
     text-align: center;
-    background-color: #fff; /* Ensure the section background is white */
+    background-color: #fff;
 }
 
 .contact-container {
-    /* Apply the light gray background, padding, and rounding to the entire block */
-    background-color: #f0f0f0; /* Light Gray Background */
+    background-color: #f0f0f0; 
     padding: 50px;
-    border-radius: 20px; /* Rounded corners for the entire card */
-    max-width: 1200px; /* Limit the max width of the entire card */
-    margin: 0 auto; /* Center the card horizontally */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    border-radius: 20px; 
+    max-width: 1200px;
+    margin: 0 auto; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
 
     display: flex;
     justify-content: space-between;
@@ -1050,9 +1155,11 @@ body {
     text-align: left;
 }
 
-.footer-copyright {
-    font-size: 0.85rem;
-    color: #888;
+.footer-copyright, .footer-text-link {
+    font-family: 'Helvetica', 'Arial', sans-serif; 
+    font-size: 14px; 
+    font-weight: 400; 
+    color: #939393; 
     margin: 0;
     white-space: nowrap;
 }
@@ -1110,28 +1217,25 @@ body {
     white-space: nowrap;
 }
 
+.footer-copyright, .footer-links {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+}
+
 .footer-links:hover {
     color: #333;
 }
 
 .footer-links .footer-text-link {
-    /* Remove the default browser underline */
     text-decoration: none;
-    
-    /* Set the color to match the footer text (usually a darker gray/black) */
-    /* Based on common footer designs, #666 or #999 is often used. 
-       If your footer text is black, use #333 or inherit. 
-       I will use a standard dark gray. */
-    color: #666; /* Adjust this hex code if your original text color was different */
-
-    /* Ensure link doesn't change color when visited */
+    color: #666;
     transition: color 0.2s ease;
 }
 
 .footer-links .footer-text-link:hover {
-    /* Optional: Add a subtle hover effect (e.g., slightly darker color) */
     color: #333;
 }
+
 /* =========================================
    12. Responsive Design (All Sections)
    ========================================= */
@@ -1139,46 +1243,34 @@ body {
     .content h1 { font-size: 3rem; }
     .header, .content { padding-left: 40px; padding-right: 40px; }
     
-    /* Hero on Tablet: Reset fixed height, stack columns */
     .main-container { height: auto; flex-direction: column; }
     .left-side, .right-side { width: 100%; height: auto; }
     .left-side { padding-bottom: 60px; }
-    /* Clip image on tablet */
     .right-side { 
         height: 500px; 
-        overflow: visible; /* Keep visible so seal hangs out */
+        overflow: visible;
     }
 
     .hero-bg-image { 
         height: 100%; 
-        position: absolute; /* Keep absolute to maintain layering */
+        position: absolute; 
     }
 
-    /* Hide the floating seal on tablet/mobile as it gets tricky */
     .floating-red-seal { 
         display: block; 
-        width: 160px; /* Slightly smaller for tablet */
-        
-        /* MATCH THE IMAGE HEIGHT:
-           Image is 100%, so we put seal top at 100% */
+        width: 160px; 
         top: 100%; 
-        
-        /* CENTER IT: */
         left: 50%;
         right: auto;
-        
-        /* SAME LOGIC: Pull up by 50% to sit on the line */
-        transform: translate(-50%, -50%) rotate(-10deg);
+        transform: translate(-50%, -50%) rotate(5deg);
     }
 
     .second-section { padding: 80px 0; margin-top: 0; }
 
-    /* Contact */
     .contact-container { padding: 0 30px; flex-direction: column; gap: 30px; }
     .contact-image-wrapper { display: none; }
     .contact-title { font-size: 2.5rem; }
     
-    /* Footer */
     .footer-container { flex-direction: column; text-align: center; gap: 20px; }
     .footer-left, .footer-center, .footer-right { width: 100%; justify-content: center; flex: none; }
     .footer-right { flex-direction: column; gap: 15px; }
@@ -1195,7 +1287,6 @@ body {
 }
 
 @media (max-width: 768px) {
-    /* Existing mobile styles */
     .content h1 { font-size: 2.5rem; }
     .hero-buttons { flex-direction: column; }
     .btn-dark, .btn-green { width: 100%; text-align: center; }
@@ -1205,7 +1296,7 @@ body {
     .floating-red-seal {
         width: 130px;
         top: 100%;
-        transform: translate(-50%, -50%) rotate(-10deg);
+        transform: translate(-50%, -50%) rotate(5deg);
     }
 
     .second-content h2 { font-size: 2.5rem; }
@@ -1213,7 +1304,7 @@ body {
     .how-it-works-container { flex-direction: column-reverse; }
     .benefits-grid { grid-template-columns: repeat(2, 1fr); }
     .contact-container {
-        flex-direction: column; /* Stack vertically */
+        flex-direction: column;
         padding: 40px 30px;
         border-radius: 15px;
         max-width: 95%;
@@ -1223,28 +1314,25 @@ body {
         display: none;
     }
     .contact-card {
-        max-width: 100%; /* Allow central content to use full width */
+        max-width: 100%;
     }
     .contact-card .contact-title {
         font-size: 1.8rem;
     }
 
-    /* --- FOOTER MOBILE REORDER (NEW CODE) --- */
     .footer-section {
-        padding: 50px 25px 30px; /* Adjust padding for mobile */
+        padding: 50px 25px 30px; 
     }
 
     .footer-container {
-        /* Stack elements vertically and center them */
         flex-direction: column; 
         align-items: center; 
-        gap: 30px; /* Vertical spacing between the main items */
+        gap: 30px; 
     }
 
     .footer-item {
         width: 100%; 
         text-align: center;
-        /* Make all footer items flexible containers to center content */
         display: flex; 
         flex-direction: column;
         align-items: center;
@@ -1269,7 +1357,7 @@ body {
     
     /* 3. Terms and Privacy Links */
     .footer-links {
-        order: 2; /* Order within .footer-right */
+        order: 2; 
         font-size: 1rem;
     }
 
@@ -1278,34 +1366,26 @@ body {
         order: 3; 
         font-size: 0.9rem;
     }
-    /* --- END FOOTER MOBILE REORDER --- */
 }
 
 @media (max-width: 480px) {
-    /* 1. STRUCTURAL FIX: Mobile Header */
-    /* switching to 'relative' ensures the header takes up physical space 
-       so the content is forced to sit below it, preventing overlap 100% */
+
     .header {
         position: relative; 
         padding: 20px 25px;
-        /* Ensure it's not centered vertically if parent is flex */
         margin-bottom: 0; 
     }
 
     /* 2. Content Layout */
     .content {
-        /* Since header is now relative (above the content), 
-           we decrease top padding to avoid a huge gap. */
         padding: 20px 25px 60px 25px; 
         text-align: left;
     }
     
-    /* Ensure the left container stacks from the top, not centered */
     .left-side {
         justify-content: flex-start;
     }
 
-    /* Typography Adjustments for Mobile */
     .content h1 { 
         font-size: 2.2rem; 
         margin-bottom: 15px;
@@ -1316,7 +1396,6 @@ body {
         margin-bottom: 25px;
     }
 
-    /* Stack buttons on small screens */
     .hero-buttons {
         flex-direction: column;
         gap: 15px;
@@ -1331,7 +1410,6 @@ body {
         grid-template-columns: 1fr; 
     }
 
-    /* CONTACT SECTION ADJUSTMENTS */
     .contact-card {
         padding: 25px 20px;
         max-width: 100%; 
@@ -1345,9 +1423,8 @@ body {
         font-size: 1rem;
     }
     
-    /* --- FOOTER MOBILE REORDER --- */
     .footer-section {
-        padding: 40px 20px 20px; /* Adjust padding for very small screens */
+        padding: 40px 20px 20px; 
     }
 
     .footer-container {
@@ -1364,12 +1441,10 @@ body {
         text-align: center;
     }
 
-    /* Apply the stacking order: 1. Logo, 2. Socials/Links, 3. Copyright */
     .footer-center { order: 1; }
     .footer-right { order: 2; }
     .footer-left { order: 3; font-size: 0.85rem; }
 
-    /* Fine-tune elements inside .footer-right */
     .footer-socials { 
         order: 1; 
         margin-bottom: 15px;
